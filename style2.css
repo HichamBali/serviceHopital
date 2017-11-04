@@ -1,0 +1,253 @@
+/*
+cette feuille de style est utilisable pour:
+ page login
+et formulaire ajouteMedecin
+*/
+body{
+
+    background-image: url("log1.jpg");
+    background-size: 100%;
+
+}
+b{
+    color: white;
+}
+#login-name{
+
+    font-size: 65px;
+    font-family: "Arabic Typesetting";
+    border-bottom-style:ridge ;
+}
+#login{
+    background-color: #1b6d85;
+    min-height: 500px;
+   opacity: 0.80;
+   /* background-color: rgba(0,0,0,.75);*/
+    padding: 35px 80px 35px 80px;
+}
+.idn{
+    font-family: "Arabic Typesetting";
+    font-size: 24px;
+ color: white;
+}
+.form-control{
+    border-radius: 0px;
+    height: 40px;
+}
+#user{
+    border-radius: 0px;
+    height: 40px;
+    color: black;
+}
+#password{
+    border-radius: 0px;
+    height: 40px;
+    color: black;
+}
+/*.aa{
+    align-content: center;
+    text-underline-mode: none;
+}*/
+
+
+.btn{
+    width: 300px;
+    float: left;
+    height: 40px;
+    margin: 3.2px;
+    border-style: solid;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*******page ajouter medecin*****/
+/* background-color: #122b40;*/
+#ajout {
+    min-height: 500px;
+    background-color: #1b6d85;
+    opacity: 0.88;
+    padding: 35px 80px 35px 80px;
+}
+.medecin{
+    color: white;
+}
+#nom{
+    border-radius: 20px;
+    height: 40px;
+    color: black;
+}
+
+#prenom{
+    border-radius: 20px;
+    height: 40px;
+    color: black;
+}
+
+#specialite{
+    border-radius: 20px;
+    height: 40px;
+    color: black;
+}
+#adresse{
+    border-radius: 20px;
+    height: 40px;
+    color: black;
+}
+#grade{
+    border-radius: 20px;
+    height: 40px;
+    color: black;
+}
+#telephone{
+    border-radius: 20px;
+    height: 40px;
+    color: black;
+}
+.btnAjout {
+              -moz-box-shadow: 3px 4px 0px 0px #899599;
+              -webkit-box-shadow: 3px 4px 0px 0px #899599;
+              box-shadow: 3px 4px 0px 0px #899599;
+              background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #bab1ba));
+              background:-moz-linear-gradient(top, #ededed 5%, #bab1ba 100%);
+              background:-webkit-linear-gradient(top, #ededed 5%, #bab1ba 100%);
+              background:-o-linear-gradient(top, #ededed 5%, #bab1ba 100%);
+              background:-ms-linear-gradient(top, #ededed 5%, #bab1ba 100%);
+              background:linear-gradient(to bottom, #ededed 5%, #bab1ba 100%);
+              filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#bab1ba',GradientType=0);
+              background-color:#ededed;
+              -moz-border-radius:15px;
+              -webkit-border-radius:15px;
+              border-radius:15px;
+              border:1px solid #d6bcd6;
+              display:inline-block;
+              cursor:pointer;
+              color: #122b40;
+              font-family:Arial;
+              font-size:19px;
+              padding:7px 30px;
+              text-decoration:none;
+              text-shadow:0px 1px 0px #e1e2ed;
+              float: right;
+
+          }
+.btnAjout:hover {
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #bab1ba), color-stop(1, #ededed));
+    background:-moz-linear-gradient(top, #bab1ba 5%, #ededed 100%);
+    background:-webkit-linear-gradient(top, #bab1ba 5%, #ededed 100%);
+    background:-o-linear-gradient(top, #bab1ba 5%, #ededed 100%);
+    background:-ms-linear-gradient(top, #bab1ba 5%, #ededed 100%);
+    background:linear-gradient(to bottom, #bab1ba 5%, #ededed 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#bab1ba', endColorstr='#ededed',GradientType=0);
+    background-color:#bab1ba;
+}
+.btnAjout:active {
+    position: relative;
+    top:1px;
+}
+
+
+
+
+
+
+/*
+Fade content bs-carousel with hero headers
+Code snippet by maridlcrmn (Follow me on Twitter @maridlcrmn) for Bootsnipp.com
+Image credits: unsplash.com
+*/
+
+
+
+/************************************************/
+/*    positionnement de text btn.. Hero Headers */
+/************************************************/
+.hero {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 3;
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 0 rgba(0,0,0,.75);
+    -webkit-transform: translate3d(-50%,-50%,0);
+    -moz-transform: translate3d(-50%,-50%,0);
+    -ms-transform: translate3d(-50%,-50%,0);
+    -o-transform: translate3d(-50%,-50%,0);
+    transform: translate3d(-50%,-50%,0);
+}
+.hero h1 {
+    font-size: 6em;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+/********************************/
+/*            Overlay           */
+/********************************/
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background-color: #080d15;
+    opacity: .7;
+}
+
+/********************************/
+/*          Custom Buttons      */
+/********************************/
+.btn.btn-m,
+.btn.btn-s,
+.btn.btn-i{
+    padding: 10px 40px;
+}
+.btn.btn-hero,
+.btn.btn-hero:hover,
+.btn.btn-hero:focus {
+    color: #f5f5f5;
+    background-color: #1abc9c;
+    border-color: #1abc9c;
+    outline: none;
+    margin: 20px auto;
+    border-radius:10px;
+}
+
+/********************************/
+/*       Slides backgrounds     */
+/********************************/
+
+.fade-carousel .slides .slide-1 {
+    height: 100vh;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+.fade-carousel .slides .slide-1 {
+    background-image: url(fond2.jpg);
+}
+
+/********************************/
+/*          Media Queries       */
+/********************************/
+@media screen and (min-width: 980px){
+    .hero { width: 980px; }
+}
+@media screen and (max-width: 640px){
+    .hero h1 { font-size: 4em; }
+}
