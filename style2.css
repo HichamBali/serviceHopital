@@ -5,7 +5,7 @@ et formulaire ajouteMedecin
 */
 body{
 
-    background-image: url("log1.jpg");
+    background-image: url("log2.jpg");
     background-size: 100%;
 
 }
@@ -19,11 +19,12 @@ b{
     border-bottom-style:ridge ;
 }
 #login{
-    background-color: #1b6d85;
+    background-color: #004D40;
     min-height: 500px;
-   opacity: 0.80;
+   opacity: 0.85;
    /* background-color: rgba(0,0,0,.75);*/
     padding: 35px 80px 35px 80px;
+    border-radius: 20px;
 }
 .idn{
     font-family: "Arabic Typesetting";
@@ -51,10 +52,10 @@ b{
 
 
 .btn{
-    width: 300px;
+    width: 261px;
     float: left;
     height: 40px;
-    margin: 3.2px;
+    margin: 4px;
     border-style: solid;
 }
 
@@ -75,44 +76,48 @@ b{
 /*******page ajouter medecin*****/
 /* background-color: #122b40;*/
 #ajout {
-    min-height: 500px;
-    background-color: #1b6d85;
-    opacity: 0.88;
-    padding: 35px 80px 35px 80px;
+    min-height: 200px;
+    min-width: 100px;
+    background-color: #004D40;
+    opacity: 0.85;
+    padding: 20px 80px 20px 80px;
+    border-radius: 15px;
+
 }
 .medecin{
     color: white;
 }
 #nom{
-    border-radius: 20px;
-    height: 40px;
+    border-radius: 10px;
+    height: 35px;
     color: black;
+
 }
 
 #prenom{
-    border-radius: 20px;
-    height: 40px;
+    border-radius: 10px;
+    height: 35px;
     color: black;
 }
 
 #specialite{
-    border-radius: 20px;
-    height: 40px;
+    border-radius: 10px;
+    height: 35px;
     color: black;
 }
 #adresse{
-    border-radius: 20px;
-    height: 40px;
+    border-radius: 10px;
+    height: 35px;
     color: black;
 }
 #grade{
-    border-radius: 20px;
-    height: 40px;
+    border-radius: 10px;
+    height: 35px;
     color: black;
 }
 #telephone{
-    border-radius: 20px;
-    height: 40px;
+    border-radius: 10px;
+    height: 35px;
     color: black;
 }
 .btnAjout {
