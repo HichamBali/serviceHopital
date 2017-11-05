@@ -20,13 +20,13 @@
 <div class="row">
 
     <div class="col-md-6 col-md-offset-3" id="login">
-        <form action="verifCnx.php" method="post">
+        <form action="verifCnx.php" method="POST">
             <center> <b id="login-name"> SE CONNECTER </b> </center>
             <div class="form-group">
                 <label class="idn">Identifiant: </label>
                 <div class="input-group">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                    <input type="text" class="form-control" id="user" name="t1" placeholder="Entrer identifiant">
+                    <input type="text" class="form-control" id="user" name="user" placeholder="Entrer identifiant">
                 </div>
             </div>
 
@@ -34,18 +34,21 @@
                 <label class="idn">Mot de passe: </label>
                 <div class="input-group">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                    <input type="password" class="form-control" id="password" name="t2" placeholder="Entrer mot de passe">
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Entrer mot de passe">
                 </div>
             </div>
             <br><br>
 
             <div class="form-group">
                 <input type="submit" class="btn btn-conx " value="Se connecter">
-                <input type="submit" class="btn btn-ins " value="S'inscrire">
+
             </div>
+
+
+        </form>
+            <div class="form-group"><input type="submit" class="btn btn-ins " value="S'inscrire"></div>
             <br><br><br>
             <a href="#" style="color: white; font-size: 15px; float: right;">Mot de passe oublier?</a>
-        </form>
 
     </div>
 </div>
