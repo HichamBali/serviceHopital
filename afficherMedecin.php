@@ -6,7 +6,7 @@
     <link href='https://fonts.googleapis.com/css?family=open+sans' rel="stylesheet" type="text/css">
 
     <script language="javascript">
-        a = 3;
+        a = 10;
 
         function affichage() {
             document.getElementById("insert").innerHTML = "";
@@ -24,7 +24,7 @@
 
             req.send();
 
-            a = a + 3;
+            a = a + 10;
 
         }
     </script>
@@ -32,9 +32,14 @@
 </head>
 
 <body>
-
-<div >
-    <table border="solid" id="insert">
+<?php
+include 'secretaire.html';
+?>
+<nav>
+    <button>Ajouter un medecin</button>
+</nav>
+<div>
+    <table id="insert" style="overflow-x:auto;" cellspacing="15" cellpadding="25">
 
         <?php
 
@@ -42,28 +47,27 @@
             $dbh = new PDO('mysql:host=localhost;dbname=service', 'root', '');
             $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-            $number=$dbh->query("SELECT * FROM medecin LIMIT 0,3");
+            $number = $dbh->query("SELECT * FROM medecin LIMIT 0,10");
             $number->execute();
 
 
             echo '<tr><td>Nom </td><td> Prenom</td><td> Adresse</td><td>Grade</td><td>Specialite</td><td>Telephone</td></tr>';
-            for($i = 0;$row = $number->fetch(); $i++) {
+            for ($i = 0; $row = $number->fetch(); $i++) {
 
                 echo
-                    '<tr>'.
-                    '<td>'.$row['nom_m'].'</td>'.
-                    '<td>'.$row['prenom_m'].'</td>'.
-                    '<td>'.$row['adresse_m'].'</td>'.
-                    '<td>'.$row['grade_m'].'</td>'.
-                    '<td>'.$row['specialite_m'].'</td>'.
-                    '<td>'.$row['numTel_m'].'</td>'.
+                    '<tr>' .
+                    '<td>' . $row['nom_m'] . '</td>' .
+                    '<td>' . $row['prenom_m'] . '</td>' .
+                    '<td>' . $row['adresse_m'] . '</td>' .
+                    '<td>' . $row['grade_m'] . '</td>' .
+                    '<td>' . $row['specialite_m'] . '</td>' .
+                    '<td>' . $row['numTel_m'] . '</td>' .
                     '</tr>';
 
-            }}
-        catch (PDOException $e){
+            }
+        } catch (PDOException $e) {
             die("erreur de connexion" . $e->getMessage());
         }
-
 
 
         ?>

@@ -12,7 +12,7 @@ try {
     $dbh = new PDO('mysql:host=localhost;dbname=service', 'root', '');
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    $number=$dbh->query("SELECT * FROM medecin LIMIT $a,2");
+    $number=$dbh->query("SELECT * FROM medecin LIMIT $a,10");
     $number->execute();
 
 

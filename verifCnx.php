@@ -21,10 +21,9 @@ try {
 $pass_hache = sha1($_POST['password']);
 
 // Vérification des identifiants
-$req = $connexionDB->prepare('SELECT id FROM users WHERE user = :user AND password = :password');
+$req = $connexionDB->prepare('SELECT idUser FROM users WHERE user = ? AND password = ?');
 $req->execute(array(
-    'user' => $user,
-    'password' => $pass_hache));
+    $user,$password));
 
 $resultat = $req->fetch();
 
@@ -33,6 +32,6 @@ if (!$resultat) {
 } else {
     session_start();
     echo 'Vous êtes connecté !';
-    header("location:app.php");
+    header("location:secretaire.html");
 }
 ?>
