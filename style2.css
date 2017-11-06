@@ -2,6 +2,8 @@
 cette feuille de style est utilisable pour:
  page login
 et formulaire ajouteMedecin
+
+inscription
 */
 body{
 
@@ -52,11 +54,12 @@ b{
 
 
 .btn{
-    width: 261px;
-    float: left;
+    width: 400px;
     height: 40px;
-    margin: 4px;
+    margin: 10px;
+    margin-left: 60px;
     border-style: solid;
+
 }
 
 
