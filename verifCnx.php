@@ -5,14 +5,14 @@
  * Date: 02/11/2017
  * Time: 11:44
  */
-
+session_start();
 $user = $_POST['user'];
 $password = $_POST['password'];
 try {
     //connexion à la base de donnée
     $connexionDB = new PDO("mysql:host=localhost;dbname=service", "root", "");
     $connexionDB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    echo "Connected successfully";
+
 } catch
 (PDOException $e) {
     die("Erreur: " . $e->getMessage());
@@ -32,6 +32,6 @@ if (!$resultat) {
 } else {
     session_start();
     echo 'Vous êtes connecté !';
-    header("location:secretaire.html");
+    header("location:home.html");
 }
 ?>

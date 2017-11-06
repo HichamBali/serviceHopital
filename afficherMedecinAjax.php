@@ -4,7 +4,7 @@
 <html>
 <head>
     <link charset="UTF-8">
-    <link rel="stylesheet" href="css.css">
+    <link rel="stylesheet" href="tableau.css">
     <link href='https://fonts.googleapis.com/css?family=open+sans' rel="stylesheet" type="text/css"></head></html>
 <?php
 $a=$_GET['n'];
