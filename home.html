@@ -34,15 +34,16 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Dashboard</a>
+            <a class="navbar-brand" href="#">Dashboard</a><!--ici j'ajoute logo-->
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
-                    <a class="dropdown-toggle" role="button" data-toggle="dropdown" href="#"><i class="fa fa-user-circle"></i> Secrétaire <span class="caret"></span></a>
+                    <a class="dropdown-toggle" role="button" data-toggle="dropdown" href="#"><i class="glyphicon glyphicon-user"></i> Secrétaire <span class="caret"></span></a>
                     <ul id="g-account-menu" class="dropdown-menu" role="menu">
                         <li><a href="login.html"><i class="fa fa-sign-out"></i> Déconnexion</a></li>
-                        <!-- <li><a href="#"><i class="fa fa-user-secret"></i> My Profile</a></li>-->
+                        <!--<li><a href="#"><i class="fa fa-user-secret"></i> Mon Profile</a></li>-->
+                        <li><a href="#"><i class="fa fa-unlock-alt"></i> Changer Mot de passe</a></li>
                     </ul>
                 </li>
 
@@ -56,63 +57,42 @@
 
 <!-- Main -->
 
-<div class="col-lg-2 col-md-2 col-sm-3 col-xs-12">
+<div id="side-nav" class="col-lg-2 col-md-2 col-sm-3 col-xs-12">
 
     <ul class="nav nav-pills nav-stacked" style="border-right:1px solid black">
 
         <!--le menu de side-bar.. contient médecin,patients,infirmer,occupation avec des sous menu ajouter/modifier/supp..-->
+
         <li>
-            <a href="#" data-toggle="collapse" data-target="#submenu-1"><i class="fa fa-user-md"></i> Médecin <i class="fa fa-fw fa-angle-down pull-right"></i></a>
-            <ul id="submenu-1" class="nav collapse">
-                <li><a href="#"><i class="fa fa-users"></i> Liste médecin</a></li>
-                <li><a href="#"><i class="fa fa-user-plus"></i> Ajouter médecin</a></li>
-                <li><a href="#"><i class="fa fa-edit"></i> Modifier médecin</a></li>
-                <li><a href="#"><i class="fa fa-user-times"></i> Supprimer médecin</a></li>
-            </ul>
+            <a href="#" data-toggle="collapse" data-target="#submenu-0"><i class="fa fa-dashboard"></i> Tableau de bord</a>
         </li>
 
-
         <li>
-            <a href="#" data-toggle="collapse" data-target="#submenu-2"><i class="fa fa-medkit"></i> Infirmier <i class="fa fa-fw fa-angle-down pull-right"></i></a>
-            <ul id="submenu-2" class="nav collapse">
-                <li><a href="#"><i class="fa fa-users"></i> Liste infirmier</a></li>
-                <li><a href="#"><i class="fa fa-user-plus"></i> Ajouter infirmier</a></li>
-                <li><a href="#"><i class="fa fa-edit"></i> Modifier infirmier</a></li>
-                <li><a href="#"><i class="fa fa-user-times"></i> Supprimer infirmier</a></li>
-            </ul>
-        </li>
-
-
-        <li>
-            <a href="#" data-toggle="collapse" data-target="#submenu-3"><i class="fa fa-user"></i> Patient <i class="fa fa-fw fa-angle-down pull-right"></i></a>
-            <ul id="submenu-3" class="nav collapse">
+            <a href="#" data-toggle="collapse" data-target="#submenu-1"><i class="fa fa-user"></i> Patient <!--<i class="fa fa-fw fa-angle-down pull-right"></i>--></a>
+            <!--<ul id="submenu-3" class="nav collapse">
                 <li><a href="#"><i class="fa fa-users"></i> Liste patient</a></li>
                 <li><a href="#"><i class="fa fa-user-plus"></i> Ajouter patient</a></li>
                 <li><a href="#"><i class="fa fa-edit"></i> Modifier patient</a></li>
                 <li><a href="#"><i class="fa fa-user-times"></i> Supprimer patient</a></li>
-            </ul>
+            </ul>-->
+        </li>
+        <li>
+            <a href="#" data-toggle="collapse" data-target="#submenu-2"><i class="fa fa-user-md"></i> Médecin </a>
+        </li>
+        <li>
+            <a href="#" data-toggle="collapse" data-target="#submenu-3"><i class="fa fa-medkit"></i> Infirmier </a>
+
+        </li>
+        <li>
+            <a href="#" data-toggle="collapse" data-target="#submenu-4"><i class="fa fa-user"></i> Secrétaire </a>
         </li>
 
-
         <li>
-            <a href="#" data-toggle="collapse" data-target="#submenu-4"><i class="fa fa-calendar"></i> Rendez-vous <i class="fa fa-fw fa-angle-down pull-right"></i></a>
-            <ul id="submenu-4" class="nav collapse">
-                <li><a href="#"><i class="fa fa-file-text-o"></i> Liste rendez-vous</a></li>
-                <li><a href="#"><i class="fa fa-plus-square"></i> Ajouter rendez-vous</a></li>
-                <li><a href="#"><i class="fa fa-edit"></i> Modifier rendez-vous</a></li>
-                <li><a href="#"><i class="fa fa-minus-square"></i>Supprimer rendez-vous</a></li>
-            </ul>
+            <a href="#" data-toggle="collapse" data-target="#submenu-5"><i class="fa fa-calendar"></i> Rendez-vous </a>
         </li>
 
-
         <li>
-            <a href="#" data-toggle="collapse" data-target="#submenu-5"><i class="fa fa-hotel"></i> Occupation <i class="fa fa-fw fa-angle-down pull-right"></i></a>
-            <ul id="submenu-5" class="nav collapse">
-                <li><a href="#"><i class="fa fa-file-text-o"></i> Liste </a></li>
-                <li><a href="#"><i class="fa fa-plus-square"></i> Ajouter </a></li>
-                <li><a href="#"><i class="fa fa-edit"></i> Modifier </a></li>
-                <li><a href="#"><i class="fa fa-minus-square"></i>Supprimer </a></li>
-            </ul>
+            <a href="#" data-toggle="collapse" data-target="#submenu-6"><i class="fa fa-hotel"></i> Occupation </a>
         </li>
 
     </ul>
@@ -120,15 +100,9 @@
 <div class="col-lg-10 col-md-10 col-sm-9 col-xs-12">
     <!-- Right -->
 
-     <a href="#"><strong><span class="fa fa-dashboard"></span> My Dashboard</strong></a>
-    <hr>
+ <!--    <a href="#"><strong><span class="fa fa-dashboard"></span> My Dashboard</strong></a>
+    <hr>-->
 </div>
-
-
-
-
-
-
 
 <script type="text/javascript">
     $(function(){

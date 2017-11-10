@@ -20,5 +20,10 @@
 
 .nav>li>a:hover, .nav>li>a:focus
 {
-    background-color: #EEEEEE;
+    background-color: #EEEEEE;/*clique*/
+}
+
+
+
+.nav{
 }
