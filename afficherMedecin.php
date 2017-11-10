@@ -2,7 +2,7 @@
 <html>
 <head>
     <link charset="UTF-8">
-    <link rel="stylesheet" href="css.css">
+    <link rel="stylesheet" href="tableau.css">
     <link href='https://fonts.googleapis.com/css?family=open+sans' rel="stylesheet" type="text/css">
 
     <script language="javascript">
@@ -33,13 +33,13 @@
 
 <body>
 <?php
-include 'secretaire.html';
+include 'home.html';
 ?>
-<nav>
-    <button>Ajouter un medecin</button>
+<nav><form action="ajoutMedecin.html">
+        <input type="submit"  value="ajouter medecin"/></form>
 </nav>
-<div>
-    <table id="insert" style="overflow-x:auto;" cellspacing="15" cellpadding="25">
+<div class="table-responsive">
+    <table  class="table table-hover" id="insert"   >
 
         <?php
 
