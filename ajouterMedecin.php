@@ -24,3 +24,4 @@ try {
 (PDOException $e) {
     die("Erreur: " . $e->getMessage());
 }
+
