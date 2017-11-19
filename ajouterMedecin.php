@@ -17,7 +17,7 @@ try {
     //connexion à la base de donnée
     $connexionDB = new PDO('mysql:host=localhost;dbname=service', 'root', '');
     $insert = $connexionDB->query("INSERT INTO medecin(nom_m,prenom_m,adresse_m,grade_m,specialite_m,numTel_m)
-      VALUES ('".$nom."','".$prenom."','".$adresse."','".$grade."','".$specialite."','".$numTel."')");
+      VALUES ('" . $nom . "','" . $prenom . "','" . $adresse . "','" . $grade . "','" . $specialite . "','" . $numTel . "')");
     $insert->execute();
     header("location:afficherMedecin.php");
 } catch
