@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Ajouter médecin</title>
+    <title>Ajouter patient</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style2.css" type="text/css" />
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
@@ -12,31 +12,35 @@
 <br>
 <div class="row">
     <div class="col-md-6 col-md-offset-3" id="ajout">
-        <form action="ajouterMedecin.php" method="post">
+        <form action="ajouterPatient.php" method="post">
 
             <div class="form-group">
-                <label class="medecin"> Nom:</label>
+                <label class="patient"> Nom:</label>
                 <input type="text" class="form-control" id="nom" name="nom" >
             </div>
             <div class="form-group">
-                <label class="medecin"> Prénom:</label>
+                <label class="patient"> Prénom:</label>
                 <input type="text" class="form-control" id="prenom" name="prenom" >
             </div>
             <div class="form-group">
-                <label class="medecin"> Spécialité:</label>
-                <input type="text" class="form-control" id="specialite" name="specialite" >
+                <label class="patient"> Numéro de sécurité sociale:</label>
+                <input type="text" class="form-control" id="numSC" name="numSC" >
             </div>
             <div class="form-group">
-                <label class="medecin"> Grade:</label>
-                <input type="text" class="form-control" id="grade" name="grade" >
-            </div>
-            <div class="form-group">
-                <label class="medecin"> Adresse:</label>
+                <label class="patient"> Adresse:</label>
                 <input type="text" class="form-control" id="adresse" name="adresse" >
             </div>
             <div class="form-group">
-                <label class="medecin"> N° Téléphone:</label>
-                <input type="text" class="form-control" id="telephone" name="telephone" >
+                <label class="patient"> N° Téléphone:</label>
+                <input type="text" class="form-control" id="numTel" name="numTel" >
+            </div>
+            <div class="form-group">
+                <label class="patient"> Date de naissance:</label>
+                <input type="date" class="form-control" id="date" name="date" >
+            </div>
+            <div class="form-group">
+                <label class="patient"> Rendez-vous:</label>
+                <input type="date" class="form-control" id="telephone" name="telephone" >
             </div>
             <div class="form-group">
                 <input type="submit" class="btnAjout " value="Enregister">
