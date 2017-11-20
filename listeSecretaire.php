@@ -22,6 +22,9 @@
 <?php
 include 'home.html';
 ?>
+<nav class="col-xs" ><form action="ajoutSecretaire.html" method="post">
+        <input type="submit"  value="ajouter secretaire"/></form>
+</nav>
 <!-- ici on affiche le tableau -->
 <div class="table-responsive" id="table_medecin">
 
