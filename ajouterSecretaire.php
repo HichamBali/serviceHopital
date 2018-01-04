@@ -13,7 +13,7 @@ $adresse = $_POST['adresse_s'];
 try{
     //connexion à la base de donnée
     $connexionDB = new PDO('mysql:host=localhost;dbname=service', 'root', '');
-    $insert = $connexionDB->query("INSERT INTO secretaire(nom_s,prenom_s,numTel_s,niveau_s,adresse_s)
+    $insert = $connexionDB->query("INSERT INTO secretaire(nom_s, prenom_s, numTel_s, niveau_s ,adresse_s)
       VALUES ('" . $nom . "','" . $prenom . "','" . $numTel . "','" . $niveau . "','" . $adresse . "')");
 
     header("location:listeSecretaire.php");

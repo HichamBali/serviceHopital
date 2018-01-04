@@ -24,7 +24,7 @@ $adresse_p = mysqli_real_escape_string($connect, $input["adresse_p"]);
 $numTel_p = mysqli_real_escape_string($connect, $input["numTel_p"]);
 $specialite_p = mysqli_real_escape_string($connect, $input["DateNaissance_p"]);
 $numTel_p = mysqli_real_escape_string($connect, $input["DateRdv_p"]);
-
+/*
 if($input["action"] === 'delete')
 {
     $query = "
@@ -34,7 +34,7 @@ if($input["action"] === 'delete')
     mysqli_query($connect, $query);
 }
 if($input["action"] === 'edit')
-{
+{*/
     $query = "
  UPDATE patient
  SET nom_p = '".$nom_p."', 
@@ -48,6 +48,6 @@ DateRdv = '".$DateRdv."'
  WHERE idPATIENT = '".$input["idPATIENT"]."'
  ";
     mysqli_query($connect, $query);
-}
+
 echo json_encode($input);
 ?>

@@ -1,18 +1,11 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Hichem
- * Date: 03/11/2017
- * Time: 17:12
- */
 
 $nom = $_POST['nom_m'];
 $prenom = $_POST['prenom_m'];
 $adresse = $_POST['adresse_m'];
 $grade = $_POST['grade_m'];
 $specialite = $_POST['specialite_m'];
-$numTel = $_POST['telephone_m'];
-echo $nom;
+$numTel = $_POST['numTel_m'];
 try {
     //connexion à la base de donnée
     $connexionDB = new PDO('mysql:host=localhost;dbname=service', 'root', '');
