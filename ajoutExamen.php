@@ -6,3 +6,9 @@
  * Time: 17:16
  */
 
+if ($_FILES['icone']['error'] > 0) $erreur = "Erreur lors du transfert";
+$extensions_valides = array( 'jpg' , 'jpeg' , 'gif' , 'png' );
+
+$extension_upload = strtolower(  substr(  strrchr($_FILES['icone']['name'], '.')  ,1)  );
+if ( in_array($extension_upload,$extensions_valides) ) echo "Extension correcte";
+move_uploaded_file($_FILES['icone']['tmp_name'],'img/'.$_FILES['icone']['name']);
