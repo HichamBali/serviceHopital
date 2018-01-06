@@ -4,7 +4,6 @@ $debut = $_POST['dateD'];
 $fin = $_POST['dateF'];
 $nlit = $_POST['lit'];
 
-
 $nom = $_POST['nom_p'];
 $prenom = $_POST['prenom_p'];
 $numSC = $_POST['numSC'];
@@ -84,3 +83,4 @@ else {
         die("Erreur: " . $e->getMessage());
     }
 }
+// dans le cas ou je modifie et je vide tt les cases de l'occup çe se supprime de la bdd?

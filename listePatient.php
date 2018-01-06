@@ -3,76 +3,76 @@
     include 'home.php';
     ?>
 </div>
-    <!--Formulaire-->
+<!--Formulaire-->
 
-    <div id="add_data_Modal" class="modal fade" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h2 class="modal-title">Informations patient</h2>
-                </div>
-                <div class="modal-body">
+<div id="add_data_Modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h2 class="modal-title">Informations patient</h2>
+            </div>
+            <div class="modal-body">
 
+                <br/>
+                <form method="post" id="insert_form" action="ajouterPatient.php">
+                    <h4><b><u>Informations générales :</u></b></h4>
+                    <label>Nom</label>
+                    <input type="text" name="nom_p" id="nom" class="form-control" />
                     <br/>
-                    <form method="post" id="insert_form" action="ajouterPatient.php">
-                        <h4><b><u>Informations générales :</u></b></h4>
-                        <label>Nom</label>
-                        <input type="text" name="nom_p" id="nom" class="form-control" />
-                        <br/>
 
-                        <label>Prénom</label>
-                        <input type="text" name="prenom_p" id="prenom" class="form-control" />
-                        <br/>
+                    <label>Prénom</label>
+                    <input type="text" name="prenom_p" id="prenom" class="form-control" />
+                    <br/>
 
-                        <label>NumSC</label>
-                        <input type="text" name="numSC" id="numSC" class="form-control" />
-                        <br/>
+                    <label>NumSC</label>
+                    <input type="text" name="numSC" id="numSC" class="form-control" />
+                    <br/>
 
-                        <label>Adresse</label>
-                        <textarea name="adresse_p" id="adresse" class="form-control"></textarea>
-                        <br/>
+                    <label>Adresse</label>
+                    <textarea name="adresse_p" id="adresse" class="form-control"></textarea>
+                    <br/>
 
-                        <label>Téléphone</label>
-                        <input type="text" name="numTel_p" id="numTel" class="form-control" />
-                        <br/>
+                    <label>Téléphone</label>
+                    <input type="text" name="numTel_p" id="numTel" class="form-control" />
+                    <br/>
 
-                        <label>Date de naissance</label>
-                        <input type="date" name="DateNaissance_p" id="dateN" class="form-control"/>
-                        <br/>
+                    <label>Date de naissance</label>
+                    <input type="date" name="DateNaissance_p" id="dateN" class="form-control"/>
+                    <br/>
 
-                        <label>Date de rendez-vous</label>
-                        <input type="date" name="DateRdv" id="dateR" class="form-control"/>
-                        <br/>
+                    <label>Date de rendez-vous</label>
+                    <input type="date" name="DateRdv" id="dateR" class="form-control"/>
+                    <br/>
 
 
-                        <!--Hôspitalisation-->
+                    <!--Hôspitalisation-->
 
-                        <h4><b><u>Occupation :</u></b></h4>
-                        <br/>
+                    <h4><b><u>Occupation :</u></b></h4>
+                    <br/>
 
-                        <label>Date de début</label>
-                        <input type="date" name="dateD" id="debut" class="form-control"/>
+                    <label>Date de début</label>
+                    <input type="date" name="dateD" id="debut" class="form-control"/>
 
-                        <br/><label>Date de fin</label>
-                        <input type="date" name="dateF" id="fin" class="form-control"/>
+                    <br/><label>Date de fin</label>
+                    <input type="date" name="dateF" id="fin" class="form-control"/>
 
-                        <br/><label>N° lit</label>
-                        <input type="text" name="lit" id="nlit" class="form-control"/>
-                        <br/>
+                    <br/><label>N° lit</label>
+                    <input type="text" name="lit" id="nlit" class="form-control"/>
+                    <br/>
 
 
-                        <input type="hidden" name="id" id="id" />
-                        <input type="submit" name="insert" id="insert" value="Valider" class="btn btn-primary"/>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+                    <input type="hidden" name="id" id="id" />
+                    <input type="submit" name="insert" id="insert" value="Valider" class="btn btn-primary"/>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
 
-                </div>
             </div>
         </div>
     </div>
+</div>
 
 
 <!--afficher les details-->
@@ -108,23 +108,50 @@
 
                 <br/>
                 <form method="post" id="consult_form" action="ajoutConsult.php">
-                    <h4><b><u>Consultation:</u></b></h4>
+
+                    <label>Nom</label>
+                    <input type="text" name="nom_p" id="nomp" class="form-control" />
+                    <br/>
+
+                    <label>Prénom</label>
+                    <input type="text" name="prenom_p" id="prenomp" class="form-control" />
+                    <br/>
+
+                    <label>Date: </label>
+                    <input type="date" name="dateCons" id="dateC" class="form-control"/>
+                    <br/>
 
                     <label>Rapport</label>
                     <textarea cols='20' rows='5' name="rapport" id="rap" class="form-control"></textarea>
+                    <br/>
+                    <div align="right">
+                        <input type="button" onclick="javascript:window.print()" value="Imprimer le rapport" class="btn btn-success" />
+                    </div>
                     <br/>
 
                     <label>Ordonnance</label>
                     <textarea cols='20' rows='5' name="ordonnance" id="ordo" class="form-control" ></textarea>
                     <br/>
+                    <div align="right">
+                        <input type="button" onclick="javascript:window.print()" value="Imprimer l'ordonnance" class="btn btn-success" />
+                    </div>
+                    <br/>
 
                     <label>Orientation</label>
                     <textarea cols='20' rows='5' name="orientation" id="orient" class="form-control" ></textarea>
+                    <br/>
+                    <div align="right">
+                        <input type="button" onclick="javascript:window.print()" value="Imprimer l'orientation" class="btn btn-success" />
+                    </div>
                     <br/>
 
 
                     <label>Certificat</label>
                     <textarea cols='20' rows='5' name="certificat" id="cert" class="form-control"></textarea>
+                    <br/>
+                    <div align="right">
+                        <input type="button" onclick="javascript:window.print()" value="Imprimer certificat" class="btn btn-success" />
+                    </div>
                     <br/>
                     <input type="hidden" name="id" id="id" /><!--je recupère id du patient-->
                     <input type="submit" name="ajouter" id="ajouter" value="Valider" class="btn btn-primary"/>
@@ -161,14 +188,14 @@
                     <input type="text" name="type" id="type" class="form-control"/>
                     <br/>
 
-                    <label>resultatExamen</label>
-                    <form method="get" action="file.doc">
-                        <button type="submit" name="resultatExamen" id="resultat" class="form-control btn btn-success" onclick="window.open('file.doc')">
-                        télécharher!</button>
+
+
+                    <form method="post" action="reception.php" enctype="multipart/form-data">
+
+                        <label for="icone">Resultat Examen</label><br />
+                        <input type="file" name="icone" id="icone" /><br />
 
                     </form>
-                    <input type="button" name="resultatExamen" id="resultat" class="form-control btn btn-success" value="télécharher!"
-                           onclick="window.location = 'file.doc';">
 
 
                     <br/>
@@ -190,7 +217,11 @@
     </div>
 </div>
 
+<!--IPRESSION DE L'ordonnance-->
+<div>
 
+
+</div>
 
 
 
@@ -252,12 +283,12 @@
                 <td id="DateNaissance_p" role="gridcell"><?php echo $donne['DateNaissance_p'];?></td>
                 <td id="DateRdv" role="gridcell"><?php echo $donne['DateRdv'];?></td>
                 <td>
-                   <!-- <input type="button" name="details" value="Details" id="?php echo $donne["idPATIENT"];?>"
-                           class="btn btn-info btn-md view_data"/>
-                    <input type="button" name="edit" value="Modifier" id="?php echo $donne["idPATIENT"];?>"
-                           class="btn btn-warning btn-md edit_data"/>
-                    <input type="button" name="delete" value="Supprimer" id="?php echo $donne["idPATIENT"];?>"
-                           class="btn btn-danger btn-md delete_data"/>-->
+                    <!-- <input type="button" name="details" value="Details" id="?php echo $donne["idPATIENT"];?>"
+                            class="btn btn-info btn-md view_data"/>
+                     <input type="button" name="edit" value="Modifier" id="?php echo $donne["idPATIENT"];?>"
+                            class="btn btn-warning btn-md edit_data"/>
+                     <input type="button" name="delete" value="Supprimer" id="?php echo $donne["idPATIENT"];?>"
+                            class="btn btn-danger btn-md delete_data"/>-->
 
 
                     <div class="btn-group">
@@ -271,11 +302,11 @@
                             <li class="divider"></li>
 
                             <li><input type="button" name="edit" value="Modifier" id="<?php echo $donne["idPATIENT"];?>"
-                                class="btn btn-warning btn-md edit_data btn-block"/></li>
+                                       class="btn btn-warning btn-md edit_data btn-block"/></li>
 
 
                             <li><input type="button" name="delete" value="Supprimer" id="<?php echo $donne["idPATIENT"];?>"
-                                class="btn btn-danger btn-md delete_data btn-block"/></li>
+                                       class="btn btn-danger btn-md delete_data btn-block"/></li>
                         </ul>
                     </div>
 
@@ -283,7 +314,7 @@
                 </td>
                 <td>
                     <input type="button" name="consult" value="Consultation" id="<?php echo $donne["idPATIENT"];?>"
-                            class="btn btn-info consult_data" data-toggle="modal" data-target="#add_consult"/>
+                           class="btn btn-info consult_data" data-toggle="modal" data-target="#add_consult"/>
                 </td>
                 <td>
                     <input type="button" name="exam" value="Examen" id="<?php echo $donne["idPATIENT"];?>"
@@ -365,36 +396,36 @@
 
             }
 
-    });
+        });
     });
 
 
     /*********************** pour le bouton ajouter ******************/
-/*
-    $('#insert_form').on("submit", function (event) {
-        event.preventDefault();
-         if ($('#nom').val() == "") {          // si le champs nom n'est pas vide
+    /*
+        $('#insert_form').on("submit", function (event) {
+            event.preventDefault();
+             if ($('#nom').val() == "") {          // si le champs nom n'est pas vide
 
-             alert("Le nom est obligatoire!");  //ç n marche pas .. j v essayer les sweet alert!
-         }
-         else {
-        $.ajax({
-            url: "ajouterPatient.php",
-            method: "POST",
-            data: $('#insert_form').serialize(),
-            beforeSend: function () {
-                $('#insert').val("Valider");
-            },
-            success: function (data) {
-                $('#insert_form')[0].reset();
-                $('#add_data_Modal').modal('hide');
-                $('#table_patient').html(data);
-            }
+                 alert("Le nom est obligatoire!");  //ç n marche pas .. j v essayer les sweet alert!
+             }
+             else {
+            $.ajax({
+                url: "ajouterPatient.php",
+                method: "POST",
+                data: $('#insert_form').serialize(),
+                beforeSend: function () {
+                    $('#insert').val("Valider");
+                },
+                success: function (data) {
+                    $('#insert_form')[0].reset();
+                    $('#add_data_Modal').modal('hide');
+                    $('#table_patient').html(data);
+                }
+            });
+            //}
         });
-        //}
-    });
-    */
-/***************************DETAILS Patient***************************/
+        */
+    /***************************DETAILS Patient***************************/
 
     // si on clique sur detail
     $(document).on('click', '.view_data', function () {
@@ -415,7 +446,7 @@
     });
 
 
-   /******************************* SUPPRIMER Patient********************/
+    /******************************* SUPPRIMER Patient********************/
 
 
     $(document).on('click', '.delete_data', function(){
@@ -440,29 +471,28 @@
 
     /******************CONSULTATION*****************/
 
-  /*  $(document).on('click', '.consult_data', function () {
+    $(document).on('click', '.consult_data', function () {
 
         var id = $(this).attr("id");
 
-        if (id != '') {                            // si le id existe
-            $.ajax({
-                url: "ajoutConsult.php",                   // appelle à la page
-                method: "POST",
-                data: {id: id},
-                success: function (data) {
-                    $('#consult').html(data);
-                    $('#dataCons').modal('show');   // afficher la page detail
-                }
-            });
-        }
+        $.ajax({
+            url: "consultation.php",
+            method: "POST",
+            data: {id: id},
+            dataType: "json",
+            success: function (data) {
+                //remplir les cases avec les anciens données
+                $('#nomp').val(data.nom_p);
+                $('#prenomp').val(data.prenom_p);
+                $('#consult').html(data);
+                $('#id').val(data.idPATIENT);
+                $('#ajouter').val("valider");
+                $('#add_consult').modal('show');
+            }
+
+        });
+
     });
-*/
-
-
-
-
-
-
 
 </script>
 

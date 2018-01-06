@@ -15,24 +15,20 @@ $ajouter = $_POST['ajouter'];
 
 $idPATIENT = $_POST['id'];
 
-echo "$idPATIENT";
 
 try {
-    //on insère d'abord ds la table occupation
+    //on insère d'abord ds la table consultation
 
     $connexionDB = new PDO('mysql:host=localhost;dbname=service', 'root', '');
-    $insert = $connexionDB->query("INSERT INTO consultation(rapport, ordonnance, orientation, certificat, PATIENT_idPATIENT )
+    $insert = $connexionDB->query("INSERT INTO consultation(rapport, ordonnance, orientation, certificat, idPatient )
          VALUES ('" . $rapport . "','" . $ordonnance . "','" . $orientation . "','" . $certificat . "','" . $idPATIENT . "')");
     $connexionDB->exec($insert);
 
+    //le id Patient!
 
-   // $last_id = $connexionDB->lastInsertId();
-
-  /*  $insert = $connexionDB->query("INSERT INTO patient(nom_p, prenom_p, numSC, adresse_p, numTel_p, DateNaissance_p, DateRdv, idOccupation)
-      VALUES ('" . $nom . "','" . $prenom . "','" . $numSC . "','" . $adresse . "','" . $numTel . "','" . $dateN . "','" . $dateR . "','" . $last_id . "')");
-*/
     header("location:listePatient.php");
 } catch
 (PDOException $e) {
     die("Erreur: " . $e->getMessage());
 }
+
