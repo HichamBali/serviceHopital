@@ -11,17 +11,19 @@ $rapport = $_POST['rapport'];
 $ordonnance = $_POST['ordonnance'];
 $certificat = $_POST['certificat'];
 $orientation = $_POST['orientation'];
+$dateCons = $_POST['dateCons'];
+$idPATIENT = $_POST['id'];
+
 $ajouter = $_POST['ajouter'];
 
-$idPATIENT = $_POST['id'];
 
 
 try {
     //on insère d'abord ds la table consultation
 
     $connexionDB = new PDO('mysql:host=localhost;dbname=service', 'root', '');
-    $insert = $connexionDB->query("INSERT INTO consultation(rapport, ordonnance, orientation, certificat, idPatient )
-         VALUES ('" . $rapport . "','" . $ordonnance . "','" . $orientation . "','" . $certificat . "','" . $idPATIENT . "')");
+    $insert = $connexionDB->query("INSERT INTO consultation(rapport, ordonnance, orientation, certificat,dateCons, idPatient )
+         VALUES ('" . $rapport . "','" . $ordonnance . "','" . $orientation . "','" . $certificat . "','" . $dateCons . "','" . $idPATIENT . "')");
     $connexionDB->exec($insert);
 
     //le id Patient!
