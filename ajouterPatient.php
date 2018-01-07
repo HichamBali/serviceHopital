@@ -9,7 +9,7 @@ $numTel = $_POST['numTel_p'];
 $dateN = $_POST['DateNaissance_p'];
 $dateR = $_POST['DateRdv'];
 $insert = $_POST['insert'];
-
+// si c'est valider on ajoute si non on modifie
 if ($insert == 'Valider') {
 
     try {
@@ -24,7 +24,7 @@ if ($insert == 'Valider') {
     (PDOException $e) {
         die("Erreur: " . $e->getMessage());
     }
-} // Modifier
+} // Modifier patient
 else {
     try {
         $connexionDB = new PDO('mysql:host=localhost;dbname=service', 'root', '');

@@ -96,169 +96,7 @@
 </div>
 
 
-<!--Consultation-->
 
-<div id="add_consult" class="modal fade" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h2 class="modal-title">Consultation</h2>
-            </div>
-            <div class="modal-body">
-
-                <br/>
-                <form method="post" id="consult_form" action="ajoutConsult.php">
-
-                    <label>Nom</label>
-                    <input type="text" name="nom_p" id="nomp" class="form-control" />
-                    <br/>
-
-                    <label>Prénom</label>
-                    <input type="text" name="prenom_p" id="prenomp" class="form-control" />
-                    <br/>
-
-                    <label>Date: </label>
-                    <input type="date" name="dateCons" id="dateC" class="form-control"/>
-                    <br/>
-
-                    <label>Rapport</label>
-                    <textarea cols='20' rows='5' name="rapport" id="rap" class="form-control"></textarea>
-                    <br/>
-                    <div align="right">
-                        <input type="button" onclick="javascript:window.print()" value="Imprimer le rapport" class="btn btn-success" />
-                    </div>
-                    <br/>
-
-                    <label>Ordonnance</label>
-                    <textarea cols='20' rows='5' name="ordonnance" id="ordo" class="form-control" ></textarea>
-                    <br/>
-                    <div align="right">
-                        <input type="button" onclick="javascript:window.print()" value="Imprimer l'ordonnance" class="btn btn-success" />
-                    </div>
-                    <br/>
-
-                    <label>Orientation</label>
-                    <textarea cols='20' rows='5' name="orientation" id="orient" class="form-control" ></textarea>
-                    <br/>
-                    <div align="right">
-                        <input type="button" onclick="javascript:window.print()" value="Imprimer l'orientation" class="btn btn-success" />
-                    </div>
-                    <br/>
-
-
-                    <label>Certificat</label>
-                    <textarea cols='20' rows='5' name="certificat" id="cert" class="form-control"></textarea>
-                    <br/>
-                    <div align="right">
-                        <input type="button" onclick="javascript:window.print()" value="Imprimer certificat" class="btn btn-success" />
-                    </div>
-                    <br/>
-                    <input type="hidden" name="id" id="id" /><!--je recupère id du patient-->
-                    <input type="submit" name="ajouter" id="ajouter" value="Valider" class="btn btn-primary"/>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
-
-            </div>
-
-        </div>
-    </div>
-</div>
-
-<!--EXAMEN-->
-
-<div id="add_exam" class="modal fade" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h2 class="modal-title">Ajouter examen</h2>
-            </div>
-            <div class="modal-body">
-
-                <br/>
-                <form method="post" id="exam_form" action="ajoutExamen.php" enctype="multipart/form-data">
-
-                    <label>Date de l'examen</label>
-                    <input type="date"  name="dateExamen" id="dateE" class="form-control"/>
-                    <br/>
-
-                    <label>Type de l'examen</label>
-                    <input type="text" name="type" id="type" class="form-control"/>
-                    <br/>
-
-
-                        <label for="icone">Resultat Examen</label><br />
-                        <input type="file" name="icone" id="icone" /><br />
-
-                    <br/>
-
-                    <label>Rapport</label>
-                    <textarea cols='20' rows='5' name="fichier" id="fichier" class="form-control" ></textarea>
-                    <br/>
-
-                    <input type="hidden" name="id" id="id" /><!--je recupère id du patient-->
-                    <input type="submit" name="ajouterExamen" id="ajouterExamen" value="Valider" class="btn btn-primary"/>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
-
-            </div>
-
-        </div>
-    </div>
-</div>
-
-<!--Occupation-->
-<div id="add_occup" class="modal fade" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h2 class="modal-title">Occupation</h2>
-            </div>
-            <div class="modal-body">
-
-                <br/>
-                <form method="post" id="occup_form" action="ajouterOccupation.php">
-
-                    <label>Nom</label>
-                    <input type="text" name="nom_p" id="nomO" class="form-control" />
-                    <br/>
-
-                    <label>Prénom</label>
-                    <input type="text" name="prenom_p" id="prenomO" class="form-control" />
-                    <br/>
-
-                    <label>Date de début: </label>
-                    <input type="date" name="dateD" id="dateD" class="form-control"/>
-                    <br/>
-
-                    <label>Date de Fin</label>
-                    <input type="date"  name="dateF" id="dateF" class="form-control"/>
-                    <br/>
-
-                    <label>N° Lit</label>
-                    <input type="text"  name="lit" id="lit" class="form-control" />
-                    <br/>
-                    <input type="hidden" name="id" id="id" /><!--je recupère id du patient-->
-                    <input type="submit" name="ajouterO" id="ajouterO" value="Valider" class="btn btn-success"/>
-
-                    <input type="submit" name="Supprimer" id="Supprimer" value="Supprimer"
-                           class="btn btn-danger" style="position:relative;left:72%;"/>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
-
-            </div>
-
-        </div>
-    </div>
-</div>
 
 
 
@@ -351,17 +189,190 @@
                 <td>
                     <input type="button" name="occup" value="Occupation" id="<?php echo $donne["idPATIENT"];?>"
                            class="btn btn-info occup_data" data-toggle="modal" data-target="#add_occup"/>
+
+                <div id="add_occup" class="modal fade" tabindex="-1" role="dialog">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h2 class="modal-title">Occupation</h2>
+                            </div>
+                            <div class="modal-body">
+
+                                <br/>
+                                <form method="post" id="occup_form" action="ajouterOccupation.php">
+
+                                    <label>Nom</label>
+                                    <input type="text" name="nom_p" id="nomO" class="form-control" />
+                                    <br/>
+
+                                    <label>Prénom</label>
+                                    <input type="text" name="prenom_p" id="prenomO" class="form-control" />
+                                    <br/>
+
+                                    <label>Date de début: </label>
+                                    <input type="date" name="dateD" id="dateD" class="form-control"/>
+                                    <br/>
+
+                                    <label>Date de Fin</label>
+                                    <input type="date"  name="dateF" id="dateF" class="form-control"/>
+                                    <br/>
+
+                                    <label>N° Lit</label>
+                                    <input type="text"  name="lit" id="lit" class="form-control" />
+                                    <br/>
+                                    <input type="hidden" name="id" id="id" value="<?php echo $donne["idPATIENT"];?>" /><!--je recupère id du patient-->
+                                    <input type="submit" name="ajouterO" id="ajouterO" value="Valider" class="btn btn-success"/>
+
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
                 </td>
+
                 <td>
                     <input type="button" name="consult" value="Consultation" id="<?php echo $donne["idPATIENT"];?>"
                            class="btn btn-info consult_data" data-toggle="modal" data-target="#add_consult"/>
+
+                    <div id="add_consult" class="modal fade" tabindex="-1" role="dialog">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h2 class="modal-title">Consultation</h2>
+                                </div>
+                                <div class="modal-body">
+
+                                    <br/>
+                                    <form method="post" id="consult_form" action="ajoutConsult.php">
+                                    <table>
+                                      <tr>
+                                      <td>
+                                        <label>Nom</label>
+                                      </td>
+                                          <td width="70">
+                                        <input type="text" name="nom_p" id="nomp" class="form-control" />
+                                          </td>
+                                        <br/>
+                                      </tr>
+                                        <tr>
+                                          <td width="70">
+                                        <label>Prénom</label>
+                                        <input type="text" name="prenom_p" id="prenomp" class="form-control" />
+                                        <br/>
+                                          </td>
+                                        </tr>
+                                    </table>
+                                        <label>Date: </label>
+                                        <input type="date" name="dateCons" id="dateC" class="form-control"/>
+                                        <br/>
+
+                                        <label>Rapport</label>
+                                        <textarea cols='20' rows='5' name="rapport" id="rap" class="form-control"></textarea>
+                                        <br/>
+                                        <div align="right">
+                                            <input type="button" onclick="javascript:window.print()" value="Imprimer le rapport" class="btn btn-success" />
+                                        </div>
+                                        <br/>
+
+                                        <label>Ordonnance</label>
+                                        <textarea cols='20' rows='5' name="ordonnance" id="ordo" class="form-control" ></textarea>
+                                        <br/>
+                                        <div align="right">
+                                            <input type="button" onclick="javascript:window.print()" value="Imprimer l'ordonnance" class="btn btn-success" />
+                                        </div>
+                                        <br/>
+
+                                        <label>Orientation</label>
+                                        <textarea cols='20' rows='5' name="orientation" id="orient" class="form-control" ></textarea>
+                                        <br/>
+                                        <div align="right">
+                                            <input type="button" onclick="javascript:window.print()" value="Imprimer l'orientation" class="btn btn-success" />
+                                        </div>
+                                        <br/>
+
+
+                                        <label>Certificat</label>
+                                        <textarea cols='20' rows='5' name="certificat" id="cert" class="form-control"></textarea>
+                                        <br/>
+                                        <div align="right">
+                                            <input type="button" onclick="javascript:window.print()" value="Imprimer certificat" class="btn btn-success" />
+                                        </div>
+                                        <br/>
+                                        <input type="hidden" name="id" id="id" value="<?php echo $donne["idPATIENT"];?>" /><!--je recupère id du patient-->
+                                        <input type="submit" name="ajouter" id="ajouter" value="Valider" class="btn btn-primary"/>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
                 </td>
                 <td>
                     <input type="button" name="exam" value="Examen" id="<?php echo $donne["idPATIENT"];?>"
                            class="btn btn-info exam_data" data-toggle="modal" data-target="#add_exam"/>
+
+
+                    <div id="add_exam" class="modal fade" tabindex="-1" role="dialog">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h2 class="modal-title">Ajouter examen</h2>
+                                </div>
+                                <div class="modal-body">
+
+                                    <br/>
+                                    <form method="post" id="exam_form" action="ajoutExamen.php" enctype="multipart/form-data">
+
+                                        <label>Date de l'examen</label>
+                                        <input type="date"  name="dateExamen" id="dateE" class="form-control"/>
+                                        <br/>
+
+                                        <label>Type de l'examen</label>
+                                        <select name="typeE" id="typeE" class="form-control">
+                                            <option value="IRM">IRM</option>
+                                            <option value="Radio">Radio</option>
+                                            <option value="Analyses">Analyse sangin</option>
+                                            <option value="echo">Echographie</option>
+                                        </select>
+                                        <br/>
+
+
+                                        <label for="icone">Resultat Examen</label><br />
+                                        <input type="file" name="icone" id="icone" /><br />
+
+                                        <br/>
+
+                                        <label>Rapport</label>
+                                        <textarea cols='20' rows='5' name="fichierExam" id="fichierExam" class="form-control" ></textarea>
+                                        <br/>
+
+                                        <input type="hidden" name="id" id="id" value="<?php echo $donne["idPATIENT"];?>" />
+                                        <input type="submit" name="ajouterExamen" id="ajouterExamen" value="Valider" class="btn btn-primary"/>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
                 </td>
-
-
 
             </tr>
             <?php
@@ -549,6 +560,10 @@
                 //remplir les cases avec les anciens données
                 $('#nomO').val(data.nom_p);
                 $('#prenomO').val(data.prenom_p);
+                $('#dateD').val(data.dateD);
+                $('#dateF').val(data.dateF);
+                $('#lit').val(data.lit);
+
                 $('#occup').html(data);
                 $('#id').val(data.idPATIENT);
                 $('#ajouterO').val("valider");

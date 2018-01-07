@@ -21,7 +21,6 @@ $ajouter = $_POST['ajouter'];
 
 
 try {
-    //on insère d'abord ds la table consultation
 
     $connexionDB = new PDO('mysql:host=localhost;dbname=service', 'root', '');
 

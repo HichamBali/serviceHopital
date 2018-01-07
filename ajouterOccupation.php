@@ -7,26 +7,29 @@
  */
 
 
-$debut = $_POST['dateD'];
-$fin = $_POST['dateF'];
+$dateD = $_POST['dateD'];
+$dateF = $_POST['dateF'];
 $lit = $_POST['lit'];
+
 $ajouterO = $_POST['ajouterO'];
 
 $idPATIENT = $_POST['id'];
+/*
+var_dump($idPATIENT);
+var_dump($lit);
 
-
+*/
 try {
-    //on insère d'abord ds la table consultation
 
     $connexionDB = new PDO('mysql:host=localhost;dbname=service', 'root', '');
 
     $query = $connexionDB->query("INSERT INTO occupation(dateD, dateF, lit, idPatient )
-         VALUES ('" . $debut . "','" . $fin . "','" . $lit . "','" . $idPATIENT . "')");
+         VALUES ('" . $dateD . "','" . $dateF . "','" . $lit . "','" . $idPATIENT . "')");
     $connexionDB->exec($query);
 
     //le id Patient!
 
-    header("location:listePatient.php");
+  header("location:listePatient.php");
 } catch
 (PDOException $e) {
     die("Erreur: " . $e->getMessage());

@@ -6,7 +6,9 @@
  * Time: 20:56
  */
 
-if(isset($_POST["id"]))
+$idPATIENT = $_POST['id'];
+
+if(isset($idPATIENT))
 {
 
     $connect = mysqli_connect("localhost", "root", "", "service");
