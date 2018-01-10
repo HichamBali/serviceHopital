@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <?php
-    session_start();
-    if(empty($_SESSION['user']))
-        {
+session_start();
+if(empty($_SESSION['user']))
+{
     // Si inexistante ou nulle, on redirige vers le formulaire de login
     header('Location:login.html');
     exit();
-        }
+}
 ?>
 
 <html lang="en">
@@ -14,7 +14,7 @@
     <meta charset="utf-8">
     <meta name="robots" content="noindex, nofollow">
 
-    <title>Dashboard</title>
+    <title>Dashboard Template (Sidebar icons animated) - Bootsnipp.com</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <link rel="stylesheet" href="home.css"/>
@@ -53,7 +53,7 @@
                 <li class="dropdown">
                     <a class="dropdown-toggle" role="button" data-toggle="dropdown" href="#"><i class="glyphicon glyphicon-user"></i> Secrétaire <span class="caret"></span></a>
                     <ul id="g-account-menu" class="dropdown-menu" role="menu">
-                        <li><a href="logOut.php"><i class="fa fa-sign-out"></i> Déconnexion </a></li>
+                        <li><a href="logOut.php"><i class="fa fa-sign-out"></i> Déconnexion</a></li>
                         <!--<li><a href="#"><i class="fa fa-user-secret"></i> Mon Profile</a></li>-->
                         <li><a href="#"><i class="fa fa-unlock-alt"></i> Changer Mot de passe</a></li>
                     </ul>
@@ -126,5 +126,3 @@
 </body>
 </html>
 -->
-
-

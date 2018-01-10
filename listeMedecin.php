@@ -51,6 +51,16 @@ include 'home.php';
                     <label>Téléphone</label>
                     <input type="text" name="numTel_m" id="numTel" class="form-control" />
                     <br/>
+
+                    <label>Nom d'utilisateur</label>
+                    <input type="text" name="user" id="user" class="form-control"/>
+                    <br/>
+
+                    <label>Mot de passe</label>
+                    <input type="password" name="password" id="password" class="form-control"/>
+                    <br/>
+
+
                     <input type="submit" name="Ajouter" id="ajouter" value="Valider" class="btn btn-primary" />
                 </form>
             </div>

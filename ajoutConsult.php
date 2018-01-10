@@ -19,7 +19,6 @@ $idPATIENT = $_POST['id'];
 $ajouter = $_POST['ajouter'];
 
 
-
 try {
 
     $connexionDB = new PDO('mysql:host=localhost;dbname=service', 'root', '');

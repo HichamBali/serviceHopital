@@ -5,9 +5,9 @@
  * Date: 02/11/2017
  * Time: 11:44
  */
-session_start();
 $user = $_POST['user'];
 $password = $_POST['password'];
+
 try {
     //connexion à la base de donnée
     $connexionDB = new PDO("mysql:host=localhost;dbname=service", "root", "");
@@ -18,12 +18,11 @@ try {
     die("Erreur: " . $e->getMessage());
 }
 // Hachage du mot de passe
-$pass_hache = sha1($_POST['password']);
+//$pass_hache = sha1($_POST['password']);
 
 // Vérification des identifiants
-$req = $connexionDB->prepare('SELECT idUser FROM users WHERE user = ? AND password = ?');
-$req->execute(array(
-    $user,$password));
+$req = $connexionDB->prepare('SELECT typeUser FROM users WHERE username = ? AND password = ?');
+$req->execute(array($user,$password));
 
 $resultat = $req->fetch();
 
@@ -31,7 +30,18 @@ if (!$resultat) {
     echo 'Mauvais identifiant ou mot de passe !';
 } else {
     session_start();
-    echo 'Vous êtes connecté !';
-    header("location:home.html");
+    $_SESSION['user']=$user;
+        if($resultat['typeUser'] == "admin"){
+            header("location:home.php");}
+        elseif ($resultat['typeUser'] == "medecin")
+        {
+            header("location:homeMedecin.php");}
+        elseif ($resultat['typeUser'] == "infirmier")
+        {
+            header("location:homeInfirmier.php");}
+        elseif ($resultat['typeUser'] == "secretaire")
+        {
+            header("location:homeSecretaire.php");}
+
 }
 ?>
