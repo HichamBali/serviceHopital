@@ -334,59 +334,7 @@
         }
     });
 
-    /******************CONSULTATION*****************/
 
-    $(document).on('click', '.consult_data', function () {
-
-        var id = $(this).attr("id");
-
-        $.ajax({
-            url: "consultation.php",
-            method: "POST",
-            data: {id: id},
-            dataType: "json",
-            success: function (data) {
-                //remplir les cases avec les anciens données
-                $('#nomp').val(data.nom_p);
-                $('#prenomp').val(data.prenom_p);
-                $('#consult').html(data);
-                $('#id').val(data.idPATIENT);
-                $('#ajouter').val("valider");
-                $('#add_consult').modal('show');
-            }
-
-        });
-
-    });
-
-    /******************OCCUPATION*****************/
-
-    $(document).on('click', '.occup_data', function () {
-
-        var id = $(this).attr("id");
-
-        $.ajax({
-            url: "occupation.php",
-            method: "POST",
-            data: {id: id},
-            dataType: "json",
-            success: function (data) {
-                //remplir les cases avec les anciens données
-                $('#nomO').val(data.nom_p);
-                $('#prenomO').val(data.prenom_p);
-                $('#dateD').val(data.dateD);
-                $('#dateF').val(data.dateF);
-                $('#lit').val(data.lit);
-
-                $('#occup').html(data);
-                $('#id').val(data.idPATIENT);
-                $('#ajouterO').val("valider");
-                $('#add_occup').modal('show');
-            }
-
-        });
-
-    });
 
 </script>
 

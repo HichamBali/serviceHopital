@@ -96,6 +96,7 @@ include 'home.php';
             <th id="grade_m" role="gridcell">Grade</th>
             <th id="specialite_m" role="gridcell">Spécialité</th>
             <th id="numTel_m" role="gridcell">Téléphone</th>
+            <th> id=</th>
 
 
         </tr>
