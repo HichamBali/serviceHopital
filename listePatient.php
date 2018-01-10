@@ -128,9 +128,7 @@
             <th id="DateNaissance_p" role="gridcell">Date de naissance</th>
             <th id="DateRdv" role="gridcell">Rendez-vous</th>
             <th id="operation">Opération</th>
-            <th id="consultation">Occupation</th>
-            <th id="consultation">Consultation</th>
-            <th id="consultation">Examen</th>
+            <th id="details" >Details</th>
 
         </tr>
         </thead>
@@ -157,6 +155,8 @@
                 <td id="numTel_p" role="gridcell"><?php echo $donne['numTel_p'];?></td>
                 <td id="DateNaissance_p" role="gridcell"><?php echo $donne['DateNaissance_p'];?></td>
                 <td id="DateRdv" role="gridcell"><?php echo $donne['DateRdv'];?></td>
+                
+                
                 <td>
                     <!-- <input type="button" name="details" value="Details" id="?php echo $donne["idPATIENT"];?>"
                             class="btn btn-info btn-md view_data"/>
@@ -184,10 +184,8 @@
 
 
                 </td>
-                <td>
-
-                </td>
-
+               
+                <td ><a class="btn btn-info" href="patientTemplate/details.php?idp=<?php echo $donne['idPATIENT'];?>">Details</a></td>
             </tr>
             <?php
             $row_count ++ ;
