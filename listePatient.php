@@ -192,7 +192,7 @@
 
                 </td>
                
-                <td ><a class="btn btn-info" href="patientTemplate/details.php?idp=<?php echo $donne['idPATIENT'];?>">Details</a></td>
+                <td ><a class="btn btn-info" href="details.php?idp=<?php echo $donne['idPATIENT'];?>">Details</a></td>
             </tr>
             <?php
             $row_count ++ ;

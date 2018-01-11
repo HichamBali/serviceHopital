@@ -1,4 +1,5 @@
 <?php
+session_start();
 /**
  * Created by PhpStorm.
  * User: hp
@@ -7,31 +8,45 @@
  */
 
 //ajouter consultation.
-
-$rapport = $_POST['rapport'];
-$ordonnance = $_POST['ordonnance'];
-$certificat = $_POST['certificat'];
-$orientation = $_POST['orientation'];
+$med=1;
+$idp=$_SESSION['idp'];
+$rapport = $_POST['rapprot'];
+$ordonnance = $_POST['ordonnace'];
+$certificat = $_POST['certifcat'];
+$orientation = $_POST['oridentation'];
 $dateCons = $_POST['dateCons'];
 
-$idPATIENT = $_POST['id'];
 
-$ajouter = $_POST['ajouter'];
+
+
 
 
 try {
 
     $connexionDB = new PDO('mysql:host=localhost;dbname=service', 'root', '');
 
-    $query = $connexionDB->query("INSERT INTO consultation(rapport, ordonnance, orientation, certificat, dateCons, idPatient )
-         VALUES ('" . $rapport . "','" . $ordonnance . "','" . $orientation . "','" . $certificat . "','" . $dateCons . "','" . $idPATIENT . "')");
-    $connexionDB->exec($query);
-
+    $query = $connexionDB->prepare("INSERT INTO consultation(rapport, ordonnance, orientation, certificat, dateCons, idPatient,idMedecin)
+         VALUES (:rapport ,:ordonnance, :orientation, :certificat , :dateCons,:idPatient,:idMedecin)");
+    $query->bindParam(':rapport', $rapport);
+    $query->bindParam(':ordonnance', $ordonnance);
+    $query->bindParam(':orientation', $orientation);
+    $query->bindParam(':certificat', $certificat);
+    $query->bindParam(':dateCons', $dateCons);
+    $query->bindParam(':idPatient', $idp);
+    $query->bindParam(':idMedecin', $med);
+    if($query->execute())
+    {
+        echo "success";
+    }
+    else echo "eroor";
     //le id Patient!
 
-    header("location:listePatient.php");
+    
 } catch
 (PDOException $e) {
     die("Erreur: " . $e->getMessage());
 }
 
+
+
+?>
