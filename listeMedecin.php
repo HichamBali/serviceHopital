@@ -1,85 +1,81 @@
-<!--<!DOCTYPE html>
-<html >
-<head>
-    <meta charset="UTF-8">
-    <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
+<div>
+    <link href="css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" href="home.css"/>
     <link rel='stylesheet prefetch' href='http://cdn.datatables.net/1.10.10/css/dataTables.bootstrap.min.css'>
 
-</head>
 
-<body>-->
-<div>
-<?php
-include 'home.php';
-?>
-<!-- formlaire-->
- <div id="add_data_Modal" class="modal fade" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Ajouter un médecin</h4>
-            </div>
-            <div class="modal-body">
-                <form method="post" id="insert_form" action="ajouterMedecin.php">
+    <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 
-                    <label>Nom</label>
-                    <input type="text" name="nom_m" id="nom" class="form-control" />
-                    <br/>
+    <?php
+    include 'home.php';
+    ?>
+    <!-- formlaire-->
+    <div id="add_data_Modal" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Ajouter un médecin</h4>
+                </div>
+                <div class="modal-body">
+                    <form method="post" id="insert_form" action="ajouterMedecin.php">
 
-                    <label>Prénom</label>
-                    <input type="text" name="prenom_m" id="prenom" class="form-control" />
-                    <br/>
+                        <label>Nom</label>
+                        <input type="text" name="nom_m" id="nom" class="form-control" />
+                        <br/>
 
-                    <label>Adresse</label>
-                    <textarea name="adresse_m" id="adresse" class="form-control"></textarea>
-                    <br/>
+                        <label>Prénom</label>
+                        <input type="text" name="prenom_m" id="prenom" class="form-control" />
+                        <br/>
 
-                    <label>Grade</label>
-                    <input type="text" name="grade_m" id="grade" class="form-control" />
-                    <br/>
+                        <label>Adresse</label>
+                        <textarea name="adresse_m" id="adresse" class="form-control"></textarea>
+                        <br/>
 
-                    <label>Spécialité</label>
-                    <select name="specialite_m" id="specialite" class="form-control">
-                        <option value="Cardiologue">Cardiologue</option>
-                        <option value="Interniste">Interniste</option>
-                        <option value="Hémathologue">Hémathologue</option>
-                        <option value="Généraliste">Généraliste</option>
-                    </select>
-                    <br/>
+                        <label>Grade</label>
+                        <input type="text" name="grade_m" id="grade" class="form-control" />
+                        <br/>
 
-                    <label>Téléphone</label>
-                    <input type="text" name="numTel_m" id="numTel" class="form-control" />
-                    <br/>
+                        <label>Spécialité</label>
+                        <select name="specialite_m" id="specialite" class="form-control">
+                            <option value="Cardiologue">Cardiologue</option>
+                            <option value="Interniste">Interniste</option>
+                            <option value="Hémathologue">Hémathologue</option>
+                            <option value="Généraliste">Généraliste</option>
+                        </select>
+                        <br/>
 
-                    <label>Nom d'utilisateur</label>
-                    <input type="text" name="user" id="user" class="form-control"/>
-                    <br/>
+                        <label>Téléphone</label>
+                        <input type="text" name="numTel_m" id="numTel" class="form-control" />
+                        <br/>
+                        <label>Nom d'utilisateur</label>
+                        <input type="text" name="user" id="user" class="form-control"/>
+                        <br/>
 
-                    <label>Mot de passe</label>
-                    <input type="password" name="password" id="password" class="form-control"/>
-                    <br/>
+                        <label>Mot de passe</label>
+                        <input type="password" name="password" id="password" class="form-control"/>
+                        <br/>
+                        <input type="submit" name="Ajouter" id="ajouter" value="Valider" class="btn btn-primary" />
 
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
 
-                    <input type="submit" name="Ajouter" id="ajouter" value="Valider" class="btn btn-primary" />
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
-
+                </div>
             </div>
         </div>
     </div>
- </div>
 
 </div>
 <!-- ici on affiche le tableau -->
 <div align="center">
- <h2>Liste Médecin</h2>
+    <h2>Liste Médecin</h2>
 </div>
 <div align="right">
- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add_data_Modal">
-    <i class="fa fa-plus"></i>Ajouter</button>
+    <button type="button" class="btn btn-primary" onclick="$('#add_data_Modal').modal('show');">
+        <i class="fa fa-plus"></i>Ajouter</button>
 </div>
 <br/>
 <div class="table-responsive" id="table_medecin">
@@ -96,13 +92,12 @@ include 'home.php';
             <th id="grade_m" role="gridcell">Grade</th>
             <th id="specialite_m" role="gridcell">Spécialité</th>
             <th id="numTel_m" role="gridcell">Téléphone</th>
-            <th> id=</th>
 
 
         </tr>
         </thead>
         <tbody>
-<!--ici on recupere les donnee du tab de la bdd -->
+        <!--ici on recupere les donnee du tab de la bdd -->
         <?php
         try{
             $bdd = new PDO('mysql:host=localhost;dbname=service;charset=utf8','root','') ;
@@ -124,6 +119,10 @@ include 'home.php';
                 <td id="specialite_m" role="gridcell"><?php echo $donne['specialite_m'];?></td>
                 <td id="numTel_m" role="gridcell"><?php echo $donne['numTel_m'];?></td>
 
+                <td><input type="button" name="edit" value="Modifier" id="<?php echo $donne["idMEDECIN"];?>"
+                           class="btn btn-warning btn-md edit_data btn-block"/>
+                <td><input type="button" name="delete" value="Supprimer" id="<?php echo $donne["idMEDECIN"];?>"
+                    class="btn btn-danger btn-md delete_data btn-block"/></td>
             </tr>
             <?php
             $row_count ++ ;
@@ -134,11 +133,17 @@ include 'home.php';
     </table>
 
 </div>
-<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src='http://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js'></script>
 <script src='http://cdn.datatables.net/1.10.10/js/dataTables.bootstrap.min.js'></script>
 
 <!--ce script pour le fonctionnement des deux btn delete & edit il prend en parametre #idDuTABLEAU et fait appelle à modifier.php-->
+
+<!--
+
+
+
 <script>
 
     $(document).ready(function() {
@@ -152,6 +157,7 @@ include 'home.php';
             onSuccess: function (data, textStatus, jqXHR) {
                 if (data.action == 'delete') {
                     $('#' + data.id).remove();
+
                 }
             }
         });
@@ -173,8 +179,44 @@ include 'home.php';
 
     });
 
-// le script du formulaire ajouter..
+
+    // le script du formulaire ajouter..
+</script>!
+
+
+
+-->
+
+
+<script>
+    <!-- suppression avec ajax!-->
+    $(document).on('click','.delete_data', function(){
+
+        var id=$(this).attr("id");
+        if(confirm("Would you delete this consultation")){
+
+            $.ajax({
+                url:'suppMed.php',
+                type: 'POST',
+                data:{
+                    ids:id
+                },
+                success: function(result){
+                    if(result.trim() == "success")
+                        window.location.reload();
+                    else alert(result.trim());
+
+                }
+            });
+
+
+
+        }
+    });
+
+
 </script>
+
 <!--pour afficher les btn delete et edit-->
 <script src="js/jquery/jquery.tabledit.js"></script>
 <!--

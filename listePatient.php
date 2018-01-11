@@ -1,4 +1,11 @@
 <div>
+    <link href="css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" href="home.css"/>
+    <link rel='stylesheet prefetch' href='http://cdn.datatables.net/1.10.10/css/dataTables.bootstrap.min.css'>
+
+
+    <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <?php
     include 'home.php';
     ?>
@@ -109,7 +116,7 @@
 <div align="right">
 
     <!--btn ajouter-->
-    <button type="button" name="ajout" id="ajout" class="btn btn-primary" data-toggle="modal" data-target="#add_data_Modal">
+    <button type="button" name="ajout" id="ajout" class="btn btn-primary" onclick="$('#add_data_Modal').modal('show');">
         <i class="fa fa-plus"></i>Ajouter</button>
 </div>
 <br/>
@@ -197,6 +204,10 @@
 
 </div>
 <!-- pose problème <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>-->
+<script src='http://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js'></script>
+<script src='http://cdn.datatables.net/1.10.10/js/dataTables.bootstrap.min.js'></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src='http://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js'></script>
 <script src='http://cdn.datatables.net/1.10.10/js/dataTables.bootstrap.min.js'></script>
 
