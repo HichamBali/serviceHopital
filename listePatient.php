@@ -53,24 +53,6 @@
                     <br/>
 
 
-
-                    <!--Hôspitalisation
-
-                    <h4><b><u>Occupation :</u></b></h4>
-                    <br/>
-
-                    <label>Date de début</label>
-                    <input type="date" name="dateD" id="debut" class="form-control"/>
-
-                    <br/><label>Date de fin</label>
-                    <input type="date" name="dateF" id="fin" class="form-control"/>
-
-                    <br/><label>N° lit</label>
-                    <input type="text" name="lit" id="nlit" class="form-control"/>
-                    <br/>
-                    -->
-
-
                     <input type="hidden" name="id" id="id" />
                     <input type="submit" name="insert" id="insert" value="Valider" class="btn btn-primary"/>
                 </form>
@@ -82,27 +64,6 @@
         </div>
     </div>
 </div>
-
-
-<!--afficher les details-->
-
-<div id="dataModal" class="modal fade">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h2 class="modal-title"> Details patient</h2>
-            </div>
-            <div class="modal-body" id="detail">
-
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-            </div>
-        </div>
-    </div>
-</div>
-
 
 
 
@@ -126,7 +87,7 @@
         <!-- le head du tableau-->
         <thead>
         <tr>
-            <th id="idPATIENT" role="gridcell">ID</th>
+            <th id="idPATIENT" role="gridcell" style="display:none">ID</th>
             <th id="nom_p" role="gridcell">Nom</th>
             <th id="prenom_p" role="gridcell">Prénom</th>
             <th id="numSC" role="gridcell">NumSC</th>
@@ -154,7 +115,7 @@
             ?>
             <tr>
 
-                <td id="idPATIENT" role="gridcell"><?php echo $donne['idPATIENT'];?></td>
+                <td id="idPATIENT" role="gridcell" style="display:none"><?php echo $donne['idPATIENT'];?></td>
                 <td id="nom_p" role="gridcell"><?php echo $donne['nom_p'];?></td>
                 <td id="prenom_p" role="gridcell"><?php echo $donne['prenom_p'];?></td>
                 <td id="numSC" role="gridcell"><?php echo $donne['numSC'];?></td>
@@ -165,13 +126,6 @@
                 
                 
                 <td>
-                    <!-- <input type="button" name="details" value="Details" id="?php echo $donne["idPATIENT"];?>"
-                            class="btn btn-info btn-md view_data"/>
-                     <input type="button" name="edit" value="Modifier" id="?php echo $donne["idPATIENT"];?>"
-                            class="btn btn-warning btn-md edit_data"/>
-                     <input type="button" name="delete" value="Supprimer" id="?php echo $donne["idPATIENT"];?>"
-                            class="btn btn-danger btn-md delete_data"/>-->
-
 
                     <div class="btn-group">
                         <button type="button"
@@ -204,8 +158,7 @@
 
 </div>
 <!-- pose problème <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>-->
-<script src='http://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js'></script>
-<script src='http://cdn.datatables.net/1.10.10/js/dataTables.bootstrap.min.js'></script>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src='http://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js'></script>
@@ -299,26 +252,6 @@
             //}
         });
         */
-    /***************************DETAILS Patient***************************/
-
-    // si on clique sur detail
-    $(document).on('click', '.view_data', function () {
-
-        var id = $(this).attr("id");
-
-        if (id != '') {                            // si le id existe
-            $.ajax({
-                url: "detailPatient.php",                   // appelle à la page detailPatient pour afficher les details
-                method: "POST",
-                data: {id: id},
-                success: function (data) {
-                    $('#detail').html(data);
-                    $('#dataModal').modal('show');   // afficher la page detail
-                }
-            });
-        }
-    });
-
 
     /******************************* SUPPRIMER Patient********************/
 

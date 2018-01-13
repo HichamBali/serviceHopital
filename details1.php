@@ -22,12 +22,6 @@ $resultat=$stmt1->fetch();
 $stmt2=$dbh->prepare("SELECT * FROM consultation WHERE idPatient =$idp");
 $stmt2->execute();
 
-
-
-
-
-
-
 ?>
 
 
@@ -97,9 +91,9 @@ $stmt2->execute();
 
       <section class="resume-section p-3 p-lg-5 d-flex d-column" id="about">
         <div class="my-auto">
-          <h1 class="mb-0"><?php echo $resultat['nom_p']?>
+          <h3 class="mb-0"><?php echo $resultat['nom_p']?>
             <span class="text-primary"><?php echo $resultat['prenom_p']?></span>
-          </h1>
+          </h3>
           <div class="subheading mb-5">3542 Berry Street · Cheyenne Wells, CO 80810 · (317) 585-8468 ·
             <a href="mailto:name@email.com">name@email.com</a>
           </div>

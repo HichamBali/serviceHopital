@@ -15,21 +15,40 @@ $numTel = $_POST['numTel_i'];
 $username = $_POST['user'];
 $password = $_POST['password'];
 $type = "infirmier";
-try {
 
-    //connexion à la base de donnée
-    $connexionDB = new PDO('mysql:host=localhost;dbname=service', 'root', '');
+$insert = $_POST['insert'];
 
-    $insertuser = $connexionDB->query("INSERT INTO users(username,password,typeUser) 
-              VALUES ('".$username."','".$password."','".$type."')");
-    $id = $connexionDB->lastInsertId();
+if ($insert == 'Valider') {
 
-    $insert = $connexionDB->query("INSERT INTO infirmier(nom_i,prenom_i,specialite_i,numTel_i,adresse_i,idUser)
-            VALUES ('" . $nom . "','" . $prenom . "','" . $specialite . "','" . $numTel . "','".$adresse."','".$id."')");
+    try {
 
-    header("location:listeInfirmier.php");
-} catch
-(PDOException $e) {
-    die("Erreur: " . $e->getMessage());
+        $connexionDB = new PDO('mysql:host=localhost;dbname=service', 'root', '');
+
+        $insert = $connexionDB->query("INSERT INTO infirmier(nom_i, prenom_i, adresse_i, numTel_i,specialite_i)
+      VALUES ('" . $nom . "','" . $prenom . "','" . $adresse . "','" . $numTel . "','" . $specialite . "')");
+
+        header("location:listeInfirmier.php");
+    } catch
+    (PDOException $e) {
+        die("Erreur: " . $e->getMessage());
+    }
+} // Modifier infirmier
+else {
+    try {
+        $connexionDB = new PDO('mysql:host=localhost;dbname=service', 'root', '');
+
+        $idINFIRMIER = $_POST['id'];
+
+
+        $query = "UPDATE infirmier SET nom_i=?, prenom_i=?, adresse_i=? , numTel_i=?, specialite_i=? WHERE idINFIRMIER=?";
+
+        $query = $connexionDB->prepare($query);
+
+        $query->execute(array($nom, $prenom,  $adresse, $numTel, $specialite,  $idINFIRMIER));
+
+        header("location:listeInfirmier.php");
+    } catch
+    (PDOException $e) {
+        die("Erreur: " . $e->getMessage());
+    }
 }
-

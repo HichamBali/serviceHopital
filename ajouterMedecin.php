@@ -9,22 +9,39 @@ $numTel = $_POST['numTel_m'];
 $username = $_POST['user'];
 $password = $_POST['password'];
 $type = "medecin";
-try {
-    //connexion à la base de donnée
-    $connexionDB = new PDO('mysql:host=localhost;dbname=service', 'root', '');
+$insert = $_POST['insert'];
+// ajouter medecin
+if ($insert == 'Valider') {
 
-    $insertuser = $connexionDB->query("INSERT INTO users(username,password,typeUser) 
-              VALUES ('".$username."','".$password."','".$type."')");
-    $id = $connexionDB->lastInsertId();
-    /*$Urecupe = $connexionDB->query("SELECT idUser FROM users WHERE username = '".$_POST['user']."'");
-    $result = $Urecupe->execute();*/
+    try {
+
+        $connexionDB = new PDO('mysql:host=localhost;dbname=service', 'root', '');
+
+        $insert = $connexionDB->query("INSERT INTO medecin(nom_m, prenom_m, adresse_m, grade_m, specialite_m, numTel_m)
+      VALUES ('" . $nom . "','" . $prenom . "','" . $adresse . "','" . $grade . "','" . $specialite . "','" . $numTel . "')");
+
+        header("location:listeMedecin.php");
+    } catch
+    (PDOException $e) {
+        die("Erreur: " . $e->getMessage());
+    }
+} // Modifier medecin
+else {
+    try {
+        $connexionDB = new PDO('mysql:host=localhost;dbname=service', 'root', '');
+
+        $idMEDECIN = $_POST['id'];
 
 
-    $insert = $connexionDB->query("INSERT INTO medecin(nom_m,prenom_m,adresse_m,grade_m,specialite_m,numTel_m,idUser)
-      VALUES ('" . $nom . "','" . $prenom . "','" . $adresse . "','" . $grade . "','" . $specialite . "','" . $numTel . "','".$id."')");
+        $query = "UPDATE medecin SET nom_m=?, prenom_m=?, adresse_m=? , grade_m=?, specialite_m=?, numTel_m=? WHERE idMEDECIN=?";
 
-    header("location:listeMedecin.php");
-} catch
-(PDOException $e) {
-    die("Erreur: " . $e->getMessage());
+        $query = $connexionDB->prepare($query);
+
+        $query->execute(array($nom, $prenom,  $adresse, $grade, $specialite, $numTel, $idMEDECIN));
+
+        header("location:listeMedecin.php");
+    } catch
+    (PDOException $e) {
+        die("Erreur: " . $e->getMessage());
+    }
 }

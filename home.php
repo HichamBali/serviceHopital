@@ -17,6 +17,7 @@
     <title>Dashboard</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
     <link rel="stylesheet" href="home.css"/>
     <link rel='stylesheet prefetch' href='http://cdn.datatables.net/1.10.10/css/dataTables.bootstrap.min.css'>
 
