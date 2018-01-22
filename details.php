@@ -41,7 +41,7 @@ $stmt4->execute();
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Resume - Start Bootstrap Theme</title>
+    <title>Details</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -55,9 +55,13 @@ $stmt4->execute();
     <!-- Custom styles for this template -->
     <link href="css/resume.min.css" rel="stylesheet">
 
-    <script src="js/jquery-3.2.1.js"></script>
+
+    <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
 
     <!--<script src="https://code.jquery.com/jquery-3.2.1.js"></script> c'est le même-->
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 
 
 </head>
@@ -89,7 +93,7 @@ $stmt4->execute();
                 <a class="nav-link js-scroll-trigger" href="#skills">Hôspitalisation</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link js-scroll-trigger" href="home.php">retour</a>
+                <a class="nav-link js-scroll-trigger" href="listePatient.php">retour</a>
             </li>
 
         </ul>
@@ -130,35 +134,41 @@ $stmt4->execute();
 
     <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="experience">
         <div class="my-auto">
-            <h2 class="mb-5">Consultation</h2>
-            <div class="col-md-2" >
-                <button type="button" name="ajout" id="addcons"  class="btn btn-success btn-md edit_data btn-block">ajouter</button>
-            </div>
-            <br>
+            <h3 class="mb-5">Consultation</h3>
 
-            <div class="resume-item d-flex flex-column flex-md-row mb-5">
+            <button type="button" name="ajout" id="addcons" class="btn btn-primary" onclick="$('#ajoutC').modal('show');">
+                <i class="fa fa-plus"></i>Ajouter</button>
+        </div>
+
+        <br>
+
+        <div class="resume-item d-flex flex-column flex-md-row mb-5">
+            <!-- col md sm ...-->
+
+            <div class="table-responsive">
+
+                <table id="tableC" role="grid" class="table table-bordered">
 
 
+                    <thead>
+                    <tr>
+                        <th style="display:none">id</th>
+                        <th>Rapport</th>
+                        <th>Ordonnance</th>
+                        <th>Orientation</th>
+                        <th>Certifica</th>
+                        <th>Date de consultation</th>
+                        <th>Action</th>
 
-                <div class="table-responsive">
-                    <table id="hello" class="table table-bordered ">
-                        <thead style="background:white;">
-                        <tr>
-                            <th style="display:none">id</th>
-                            <th>Rapport</th>
-                            <th>Ordonnance</th>
-                            <th>Orientation</th>
-                            <th>Certifica</th>
-                            <th>Date de consultation</th>
 
-                        </tr>
-                        </thead>
-                        <tbody>
-
-                        <?php
-                        while($row =  $stmt2->fetch())
-                        {
-                            echo '
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <!--ici on recupere les donnee du tab de la bdd -->
+                    <?php
+                    while($row =  $stmt2->fetch())
+                    {
+                        echo '
       <tr>
       <td style="display:none">'.$row["idCONSULTATION"].'</td>
        <td>'.$row["rapport"].'</td>
@@ -166,37 +176,59 @@ $stmt4->execute();
        <td>'.$row["orientation"].'</td>
        <td>'.$row["certificat"].'</td>
        <td>'.$row["dateCons"].'</td>
-       <td><input type="button" name="edit" value="Modifier" id="'.$row["idCONSULTATION"].'"
-                                       class="btn btn-info btn-md edit_data btn-block"/></td>
-           <td><input type="button" name="delete" value="Supprimer" id="'.$row["idCONSULTATION"].'"
-                                       class="btn btn-danger btn-md delete_data btn-block"/></td>
+       
+        <td>
+
+                    <div class="btn-group">
+                        <button type="button"
+                                class="btn btn-primary btn-lm dropdown-toggle" data-toggle="dropdown">
+                            Action <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+
+                            <li><input type="button" name="edit" value="Modifier" id="'.$row["idCONSULTATION"].'"
+                                       class="btn btn-info btn-md edit_data btn-block"/></li>
+
+                            <li><input type="button" name="delete" value="Supprimer" id="'.$row["idCONSULTATION"].'"
+                                       class="btn btn-danger btn-md delete_data btn-block"/></li>
+                        </ul>
+                    </div>
+
+
+                </td>
+      
+          
 
     
        
       </tr>
       ';
-                        }
-                        ?>
+                    }
+                    ?>
 
-                        </tbody>
-                    </table>
-
-                </div>
-
+                    <tbody>
+                </table>
 
             </div>
+
+
         </div>
 
 
 
+
+
     </section>
+
+    <!---------------------------------------------------------EXMAEN------------------------------------------------>
 
     <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="education">
 
         <div class="my-auto">
             <h2 class="mb-5">Examen</h2>
             <div class="col-md-2" >
-                <button type="button" name="ajout" id="addcons"  class="btn btn-success btn-md edit_data btn-block">ajouter</button>
+                <button type="button" name="ajout1" id="addcons" class="btn btn-primary" onclick="$('#ajoutE').modal('show');">
+                    <i class="fa fa-plus"></i>Ajouter</button>
             </div>
             <br>
 
@@ -205,7 +237,7 @@ $stmt4->execute();
 
 
                 <div class="table-responsive">
-                    <table id="hello" class="table table-bordered ">
+                    <table id="tableE" class="table table-bordered ">
                         <thead style="background:white;">
                         <tr>
                             <th style="display:none">id</th>
@@ -213,6 +245,7 @@ $stmt4->execute();
                             <th>Type</th>
                             <th>Resultat</th>
                             <th>Fichier</th>
+                            <th>Action</th>
 
                         </tr>
                         </thead>
@@ -229,10 +262,26 @@ $stmt4->execute();
        <td>'.$row["resultatExamen"].'</td>
        <td>'.$row["fichierExam"].'</td>
        
-       <td><input type="button" name="edit" value="Modifier" id="'.$row["idEXAMEN"].'"
-                                       class="btn btn-info btn-md edit_data btn-block"/></td>
-           <td><input type="button" name="delete" value="Supprimer" id="'.$row["idEXAMEN"].'"
-                                       class="btn btn-danger btn-md delete_data btn-block"/></td>
+       <td>
+
+    <div class="btn-group">
+        <button type="button"
+                class="btn btn-primary btn-lm dropdown-toggle" data-toggle="dropdown">
+            Action <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+
+            <li><input type="button"  value="Modifier" id="'.$row["idEXAMEN"].'"
+                class="btn btn-info btn-md edit_data1 btn-block"/></li>
+
+            <li><input type="button"  value="Supprimer" id="'.$row["idEXAMEN"].'"
+                class="btn btn-danger btn-md delete_data1 btn-block"/></li>
+        </ul>
+    </div>
+    
+
+</td>
+
 
     
        
@@ -252,73 +301,104 @@ $stmt4->execute();
 
     </section>
 
-    <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="skills">
-        <div class="my-auto">
-            <h2 class="mb-5">Occupation</h2>
-            <div class="col-md-2" >
-                <button type="button" name="ajoutO" id="addoccup"  class="btn btn-success btn-md edit_data btn-block">ajouter</button>
-            </div>
-            <br>
 
-            <div class="resume-item d-flex flex-column flex-md-row mb-5">
-
-
-
-                <div class="table-responsive">
-                    <table id="hello" class="table table-bordered ">
-                        <thead style="background:white;">
-                        <tr>
-                            <th style="display:none">id</th>
-                            <th>Date de début </th>
-                            <th>Date de fin</th>
-                            <th>N° lit</th>
-
-
-
-                        </tr>
-                        </thead>
-                        <tbody>
-
-                        <?php
-                        while($row =  $stmt4->fetch())
-                        {
-                            echo '
-      <tr>
-      <td style="display:none">'.$row["idOCCUPATION"].'</td>
-       <td>'.$row["dateD"].'</td>
-       <td>'.$row["dateF"].'</td>
-       <td>'.$row["lit"].'</td>
-       <td><input type="button" name="edit" value="Modifier" id="'.$row["idOCCUPATION"].'"
-                                       class="btn btn-info btn-md edit_data btn-block"/></td>
-           <td><input type="button" name="delete" value="Supprimer" id="'.$row["idOCCUPATION"].'"
-                                       class="btn btn-danger btn-md delete_data btn-block"/></td>
-
-    
-       
-      </tr>
-      ';
-                        }
-                        ?>
-
-                        </tbody>
-                    </table>
-
-                </div>
-
-
-            </div>
-        </div>
-
-
-
-
-    </section>
 
 
 </div>
 
+<!--CONSULTATION-->
+<div id="ajoutC" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Consultation</h3>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+
+                <br/>
+                <form method="post" id="insert_form" action="ajoutConsult.php">
+
+                    <label>Rapport</label>
+                    <textarea  name="rapport" id="rapport" class="form-control" ></textarea>
+                    <br/>
+
+                    <label>Ordonnance</label>
+                    <textarea  name="ordonnance" id="ordonnance" class="form-control" ></textarea>
+                    <br/>
+
+                    <label>Orientation</label>
+                    <textarea  name="orientation" id="orientation" class="form-control" ></textarea>
+                    <br/>
+
+                    <label>Certificat</label>
+                    <textarea  name="certificat" id="certificat" class="form-control" ></textarea>
+                    <br/>
+
+                    <label>Date </label>
+                    <input type="date" name="dateCons" id="dateCons" class="form-control"/>
+                    <br/>
 
 
+                    <input type="hidden" name="id" id="id" />
+                    <input type="submit" name="insert" id="insert" value="Valider" class=" formBtn btn btn-primary"/>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--MODAL EXAMEN-->
+<div id="ajoutE" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Examen</h3>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+
+                <br/>
+                <form method="post" id="insert_formE" action="ajoutExamen.php">
+
+                    <label>Date </label>
+                    <input type="date" name="dateExamen" id="dateExamen" class="form-control"/>
+                    <br/>
+
+                    <label>Type</label>
+                    <textarea  name="typeE" id="typeE" class="form-control" ></textarea>
+                    <br/>
+
+                    <label>Resultat</label>
+                    <textarea  name="resultatExamen" id="resultatExamen" class="form-control" ></textarea>
+                    <br/>
+
+                    <label>Fichier</label>
+                    <textarea  name="fichierExam" id="fichierExam" class="form-control" ></textarea>
+                    <br/>
+
+
+
+                    <input type="hidden" name="id" id="id" />
+                    <input type="submit" name="insertE" id="insertE" value="Valider" class=" formBtn btn btn-primary"/>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src='http://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js'></script>
+<script src='http://cdn.datatables.net/1.10.10/js/dataTables.bootstrap.min.js'></script>
 
 
 <!-- Bootstrap core JavaScript -->
@@ -326,100 +406,50 @@ $stmt4->execute();
 <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 <!-- Plugin JavaScript -->
-<!--<script src="vendor/jquery-easing/jquery.easing.min.js"></script>-->
+<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
 <!-- Custom scripts for this template -->
 <script src="js/resume.min.js"></script>
 
 
-
-
-
-<div id="consultation">
-
-    <h4>Formulaire Consultation</h4>
-    <small>Remplire tout les données nécessaire </small>
-
-    <form  class="form">
-
-        <input placeholder="rapport" id="rapport" type="text"  required />
-        <textarea placeholder="oridentation" id="oridentation" type="text" required></textarea>
-        <textarea placeholder="certifcat" id="certifcat" type="text" required></textarea>
-        <textarea placeholder="Ordonnance" id="ordonnace" required></textarea>
-        <input placeholder="dateCons" id="dateCons" type="date" required />
-        <input class="formBtn"  id="validerAdd"  type="button" value="valider">
-        <input class="formBtn" type="reset" />
-
-
-    </form>
-</div>
-
-<div id="modifierConsult">
-
-    <h4>Formulaire Consultation!</h4>
-    <small>Modifier tout les données nécessaire </small>
-
-    <form  class="form">
-
-        <input placeholder="rapport" id="rapport2" type="text"  required />
-        <textarea placeholder="oridentation" id="oridentation2" type="text" required></textarea>
-        <textarea placeholder="certifcat" id="certifcat2" type="text" required></textarea>
-        <textarea placeholder="Ordonnance" id="ordonnace2" required></textarea>
-        <input placeholder="dateCons" id="dateCons2" type="date" required />
-        <input class="formBtn"  id="validerAdd2"  type="button" value="valider">
-        <input class="formBtn" type="reset" />
-
-
-    </form>
-</div>
-
 <script>
-    $(function() {
-
-        // contact form animations
-        $('#addcons').click(function() {
-            $('#consultation').fadeToggle();
-        })
-        $(document).mouseup(function (e) {
-            var container = $("#consultation");
-
-            if (!container.is(e.target) // if the target of the click isn't the container...
-                && container.has(e.target).length === 0) // ... nor a descendant of the container
-            {
-                container.fadeOut();
-            }
-        });
-
+    /******************************************* ajouter consultation*********************************/
+    $('#ajout').click(function () {
+        $('#insert').val("Valider");
+        $('#insert_form')[0].reset();
     });
 
 
-</script>
-<script>
 
+    /**modifier consultation**/
 
-    $('#validerAdd').on('click', function(){
+    $(document).on('click', '.edit_data', function () {
+        var id = $(this).attr("id");
         $.ajax({
-            url:'ajoutConsult.php',
-            type: 'POST',
-            data:{
-                rapprot: $('#rapport').val(),
-                ordonnace: $('#ordonnace').val(),
-                oridentation: $('#oridentation').val(),
-                certifcat: $('#certifcat').val(),
-                dateCons: $('#dateCons').val()
-            },
-            success: function(result){
-                if(result.trim() == "success")
-                    window.location.reload();
-                else alert('error');
+            url: "AffichModifierCons.php",
+            method: "POST",
+            data: {id: id},
+            dataType: "json",
+            success: function (data) {
+                //remplir les cases avec les anciens données
+                $('#rapport').val(data.rapport);
+                $('#ordonnance').val(data.ordonnance);
+                $('#orientation').val(data.orientation);
+                $('#certificat').val(data.certificat);
+                $('#dateCons').val(data.dateCons);
+
+                $('#id').val(data.idCONSULTATION);
+
+                $('#insert').val("Modifier");
+                $('#ajoutC').modal('show');
+
 
             }
+
         });
-
-
     });
 
-
+    /**Supprimer consultation**/
 
     $(document).on('click','.delete_data', function(){
 
@@ -444,75 +474,68 @@ $stmt4->execute();
 
         }
 
+    });
 
+    /*****************************ajouter exmen***************************************************/
+
+    $('#ajout1').click(function () {
+        $('#insertE').val("Valider");
+        $('#insert_formE')[0].reset();
+    });
+    /*************************MODIFIER EXAMEN     ************************/
+
+    $(document).on('click', '.edit_data1', function () {
+        var id = $(this).attr("id");
+        $.ajax({
+            url: "AffichModifierExam.php",
+            method: "POST",
+            data: {id: id},
+            dataType: "json",
+            success: function (data) {
+                //remplir les cases avec les anciens données
+                $('#dateExamen').val(data.dateExamen);
+                $('#typeE').val(data.typeE);
+                $('#resultatExamen').val(data.resultatExamen);
+                $('#fichierExam').val(data.fichierExam);
+
+                $('#id').val(data.idEXAMEN);
+
+                $('#insertE').val("Modifier");
+                $('#ajoutE').modal('show');
+
+
+            }
+
+        });
+    });
+
+    $(document).on('click','.delete_data1', function(){
+
+        var id=$(this).attr("id");
+        if(confirm("Voulez vous supprimer cet examen?")){
+
+            $.ajax({
+                url:'suppExam.php',
+                type: 'POST',
+                data:{
+                    ids:id
+                },
+                success: function(result){
+                    if(result.trim() == "success")
+                        window.location.reload();
+                    else alert(result.trim());
+
+                }
+            });
+
+
+
+        }
 
     });
 
 </script>
-<style>
 
-    .formBtn {
-        width: 140px;
-        display: inline-block;
-        line-height: 2px;
-        background: #03a9f3;
-        border: 1px solid #03a9f3;
-        color: #fff;
-        font-weight: 100;
-        font-size: 1.2em;
-        border: none;
-        height: 30px;
-    }
-
-
-    #contactForm {
-        display: none;
-        z-index: 9999999;
-        border: 6px solid #03a9f3;
-        padding: 2em;
-        width: 650px;
-        text-align: center;
-        background: #fff;
-        position: fixed;
-        top:50%;
-        left:50%;
-        transform: translate(-50%,-50%);
-        -webkit-transform: translate(-50%,-50%)
-
-    }
-
-
-
-    #consultation,#modifierConsult {
-        display: none;
-        z-index: 9999999;
-        border: 6px solid #03a9f3;
-        padding: 2em;
-        width: 650px;
-        text-align: center;
-        background: #fff;
-        position: fixed;
-        top:50%;
-        left:50%;
-        transform: translate(-50%,-50%);
-        -webkit-transform: translate(-50%,-50%)
-
-    }
-
-    input, textarea {
-        margin: .8em auto;
-        font-family: inherit;
-        text-transform: inherit;
-        font-size: inherit;
-
-        display: block;
-        width: 580px;
-        padding: .4em;
-    }
-    textarea { height: 80px; resize: none; }
-
-
-</style>
 </body>
 
 </html>

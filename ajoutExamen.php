@@ -6,6 +6,8 @@
  * Time: 17:16
  */
 
+session_start();
+/*
 if ($_FILES['icone']['error'] > 0) $erreur = "Erreur lors du transfert";
 $extensions_valides = array( 'jpg' , 'jpeg' , 'gif' , 'png' );
 
@@ -23,22 +25,61 @@ $fichierExam=$_POST['fichierExam'];
 $idPATIENT = $_POST['idPatient'];
 
 
+*/
+$med=1;
+$idp=$_SESSION['idp'];
+$dateExamen = $_POST['dateExamen'];
+$typeE = $_POST['typeE'];
+$resultatExamen = $_POST['resultatExamen'];
+$fichierExam = $_POST['fichierExam'];
+$insertE = $_POST['insertE'];
 
 
+if ($insertE == 'Valider') {
 
-try {
 
-    $connexionDB = new PDO('mysql:host=localhost;dbname=service', 'root', '');
+    try {
 
-    $query = $connexionDB->query("INSERT INTO examen(dateExamen, typeE, resultatExamen, fichierExam,idPatient )
-         VALUES ('" . $dateExamen . "','" . $typeE . "','" . $iconee . "','" . $fichierExam . "','".$idPATIENT."')");
-    $connexionDB->exec($query);
+        $connexionDB = new PDO('mysql:host=localhost;dbname=service', 'root', '');
 
-    //le id Patient!
+        $query = $connexionDB->query("INSERT INTO examen(dateExamen, typeE, resultatExamen, fichierExam, idPatient,idMedecin)
+         VALUES ('" . $dateExamen . "','" . $typeE . "','" . $resultatExamen . "','" . $fichierExam . "','" . $idp . "','" . $med . "')");
+        $connexionDB->exec($query);
 
-    header("location:listePatient.php");
-} catch
-(PDOException $e) {
-    die("Erreur: " . $e->getMessage());
+        //le id Patient!
+
+        header("location:test.php?idp=$idp");
+    } catch
+    (PDOException $e) {
+        die("Erreur: " . $e->getMessage());
+    }
+
+}
+else{
+    if (!empty($insertE)){
+
+        try {
+            $connexionDB = new PDO('mysql:host=localhost;dbname=service', 'root', '');
+
+            $idEXAMEN = $_POST['id'];
+
+
+            $query = "UPDATE examen SET dateExamen=?, typeE=?, resultatExamen=?, fichierExam=? WHERE idEXAMEN=?";
+
+            $query = $connexionDB->prepare($query);
+
+            $query->execute(array($dateExamen, $typeE, $resultatExamen, $fichierExam, $idEXAMEN));
+
+            header("location:test.php?idp=$idp");
+
+        } catch
+        (PDOException $e) {
+            die("Erreur: " . $e->getMessage());
+        }
+    }
+    else {
+        echo 'error';
+    }
+
 }
 
