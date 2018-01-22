@@ -225,9 +225,9 @@ $stmt4->execute();
     <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="education">
 
         <div class="my-auto">
-            <h2 class="mb-5">Examen</h2>
+            <h3 class="mb-5">Examen</h3>
             <div class="col-md-2" >
-                <button type="button" name="ajout1" id="addcons" class="btn btn-primary" onclick="$('#ajoutE').modal('show');">
+                <button type="button" name="ajout1" id="addExam" class="btn btn-primary" onclick="$('#ajoutE').modal('show');">
                     <i class="fa fa-plus"></i>Ajouter</button>
             </div>
             <br>
@@ -301,12 +301,99 @@ $stmt4->execute();
 
     </section>
 
+    <!--------------------------------------------------------OCCUPATION------------------------------------------------>
+
+
+    <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="skills">
+        <div class="my-auto">
+            <h3 class="mb-5">Occupation</h3>
+
+            <div class="col-md-2" >
+                <button type="button" name="ajout2" id="addoccup" class="btn btn-primary" onclick="$('#ajoutO').modal('show');">
+                    <i class="fa fa-plus"></i>Ajouter</button>
+            </div>
+            <br>
+
+            <div class="resume-item d-flex flex-column flex-md-row mb-5">
+
+
+
+                <div class="table-responsive">
+                    <table id="tableOccupation" class="table table-bordered ">
+                        <thead style="background:white;">
+                        <tr>
+                            <th style="display:none">id</th>
+                            <th>Date de début </th>
+                            <th>Date de fin</th>
+                            <th>N° Chambre</th>
+                            <th>Actions </th>
+
+
+
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        <?php
+                        while($row =  $stmt4->fetch())
+                        {
+                            echo '
+      <tr>
+      <td style="display:none">'.$row["idOCCUPATION"].'</td>
+       <td>'.$row["dateD"].'</td>
+       <td>'.$row["dateF"].'</td>
+       <td>'.$row["lit"].'</td>
+   
+       <td>
+
+    <div class="btn-group">
+        <button type="button"
+                class="btn btn-primary btn-lm dropdown-toggle" data-toggle="dropdown">
+            Action <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+
+            <li><input type="button" name="edit" value="Modifier" id="'.$row["idOCCUPATION"].'"
+                                       class="btn btn-info btn-md edit_dataO btn-block"/></li>
+
+            <li><input type="button" name="delete" value="Supprimer" id="'.$row["idOCCUPATION"].'"
+                                       class="btn btn-danger btn-md delete_dataO btn-block"/></li>
+        </ul>
+    </div>
+    
+
+</td>
+     
+
+    
+       
+      </tr>
+      ';
+                        }
+                        ?>
+
+                        </tbody>
+                    </table>
+
+                </div>
+
+
+            </div>
+        </div>
+
+
+
+
+    </section>
+
 
 
 
 </div>
+<!--*****************************************MODALS************************************************-->
 
-<!--CONSULTATION-->
+<!--MODAL CONSULTATION-->
+
 <div id="ajoutC" class="modal fade" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -353,6 +440,7 @@ $stmt4->execute();
 </div>
 
 <!--MODAL EXAMEN-->
+
 <div id="ajoutE" class="modal fade" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -381,10 +469,10 @@ $stmt4->execute();
                     <textarea  name="fichierExam" id="fichierExam" class="form-control" ></textarea>
                     <br/>
 
-
+                    <input type="hidden" name="insertE" id="insertE" value="Valider">
 
                     <input type="hidden" name="id" id="id" />
-                    <input type="submit" name="insertE" id="insertE" value="Valider" class=" formBtn btn btn-primary"/>
+                    <input type="submit" id="examSubmitButton"  value="Valider" class=" formBtn btn btn-primary"/>
                 </form>
             </div>
             <div class="modal-footer">
@@ -394,6 +482,46 @@ $stmt4->execute();
         </div>
     </div>
 </div>
+
+<div id="ajoutO" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Examen</h3>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+
+                <br/>
+                <form method="post" id="insert_formO" action="ajouterOccupation.php">
+
+                    <label>Date </label>
+                    <input type="date" name="dateD" id="dateD" class="form-control"/>
+                    <br/>
+
+                    <label>Date </label>
+                    <input type="date" name="dateF" id="dateF" class="form-control"/>
+                    <br/>
+
+                    <label>Num chambre</label>
+                    <textarea  name="lit" id="lit" class="form-control" ></textarea>
+                    <br/>
+
+                    <input type="hidden" name="insertO" id="insertO" value="Valider">
+
+                    <input type="hidden" name="id" id="id" />
+                    <input type="submit" id="occupSubmitButton" value="Valider" class=" formBtn btn btn-primary"/>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -476,6 +604,9 @@ $stmt4->execute();
 
     });
 
+
+</script>
+<script>
     /*****************************ajouter exmen***************************************************/
 
     $('#ajout1').click(function () {
@@ -498,9 +629,10 @@ $stmt4->execute();
                 $('#resultatExamen').val(data.resultatExamen);
                 $('#fichierExam').val(data.fichierExam);
 
-                $('#id').val(data.idEXAMEN);
+                $('#insert_formE #id').val(data.idEXAMEN);
 
                 $('#insertE').val("Modifier");
+                $("#examSubmitButton").val("Modifier");
                 $('#ajoutE').modal('show');
 
 
@@ -516,6 +648,65 @@ $stmt4->execute();
 
             $.ajax({
                 url:'suppExam.php',
+                type: 'POST',
+                data:{
+                    ids:id
+                },
+                success: function(result){
+                    if(result.trim() == "success")
+                        window.location.reload();
+                    else alert(result.trim());
+
+                }
+            });
+
+
+
+        }
+
+    });
+
+</script>
+
+<script>
+    $('#ajout2').click(function () {
+        $('#insertO').val("Valider");
+        $('#insert_formO')[0].reset();
+    });
+
+    $(document).on('click', '.edit_dataO', function () {
+        var id = $(this).attr("id");
+        $.ajax({
+            url: "AffichModifierOccup.php",
+            method: "POST",
+            data: {id: id},
+            dataType: "json",
+            success: function (data) {
+                //remplir les cases avec les anciens données
+                $('#dateD').val(data.dateD);
+                $('#dateF').val(data.dateF);
+                $('#lit').val(data.lit);
+
+
+                $('#insert_formO #id').val(data.idOCCUPATION);
+
+                $('#insertO').val("Modifier");
+                $("#occupSubmitButton").val("Modifier");
+                $('#ajoutO').modal('show');
+
+
+            }
+
+        });
+    });
+
+    $(document).on('click','.delete_dataO', function(){
+
+        var id=$(this).attr("id");
+        if(confirm("Voulez vous supprimer cette occupation?")){
+
+            $.ajax({
+                url:'suppOccup.php',
                 type: 'POST',
                 data:{
                     ids:id

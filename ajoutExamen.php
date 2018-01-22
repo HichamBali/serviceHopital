@@ -19,12 +19,6 @@ $iconee = $_FILES['icone']['name'];
 $iconee = addslashes (file_get_contents($_FILES['icone']['tmp_name']));
 
 
-$dateExamen=$_POST['dateExamen'];
-$typeE=$_POST['typeE'];
-$fichierExam=$_POST['fichierExam'];
-$idPATIENT = $_POST['idPatient'];
-
-
 */
 $med=1;
 $idp=$_SESSION['idp'];
@@ -32,6 +26,7 @@ $dateExamen = $_POST['dateExamen'];
 $typeE = $_POST['typeE'];
 $resultatExamen = $_POST['resultatExamen'];
 $fichierExam = $_POST['fichierExam'];
+
 $insertE = $_POST['insertE'];
 
 
@@ -54,8 +49,7 @@ if ($insertE == 'Valider') {
         die("Erreur: " . $e->getMessage());
     }
 
-}
-else{
+} else{
 
     try {
         $connexionDB = new PDO('mysql:host=localhost;dbname=service', 'root', '');

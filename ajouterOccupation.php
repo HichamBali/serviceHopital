@@ -5,33 +5,50 @@
  * Date: 06/01/2018
  * Time: 20:36
  */
+session_start();
 
+$med=1;
+$idp=$_SESSION['idp'];
 
 $dateD = $_POST['dateD'];
 $dateF = $_POST['dateF'];
 $lit = $_POST['lit'];
+$insertO = $_POST['insertO'];
 
-$ajouterO = $_POST['ajouterO'];
+if ($insertO == 'Valider') {
 
-$idPATIENT = $_POST['id'];
-/*
-var_dump($idPATIENT);
-var_dump($lit);
+    try {
 
-*/
-try {
+        $connexionDB = new PDO('mysql:host=localhost;dbname=service', 'root', '');
 
-    $connexionDB = new PDO('mysql:host=localhost;dbname=service', 'root', '');
+        $query = $connexionDB->query("INSERT INTO occupation(dateD, dateF, lit, idPatient, idMedecin)
+         VALUES ('" . $dateD . "','" . $dateF . "','" . $lit . "','" . $idp . "','" . $med . "')");
+        $connexionDB->exec($query);
 
-    $query = $connexionDB->query("INSERT INTO occupation(dateD, dateF, lit, idPatient )
-         VALUES ('" . $dateD . "','" . $dateF . "','" . $lit . "','" . $idPATIENT . "')");
-    $connexionDB->exec($query);
 
-    //le id Patient!
-
-  header("location:listePatient.php");
-} catch
-(PDOException $e) {
-    die("Erreur: " . $e->getMessage());
+        header("location:details.php?idp=$idp");
+    } catch
+    (PDOException $e) {
+        die("Erreur: " . $e->getMessage());
+    }
 }
+else{
+    try {
+        $connexionDB = new PDO('mysql:host=localhost;dbname=service', 'root', '');
 
+        $idOCCUPATION = $_POST['id'];
+
+
+        $query = "UPDATE occupation SET dateD=?, dateF=?, lit=? WHERE idOCCUPATION=?";
+
+        $query = $connexionDB->prepare($query);
+
+        $query->execute(array($dateD, $dateF, $lit, $idOCCUPATION));
+
+        header("location:details.php?idp=$idp");
+
+    } catch
+    (PDOException $e) {
+        die("Erreur: " . $e->getMessage());
+    }
+}

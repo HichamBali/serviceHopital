@@ -6,16 +6,14 @@
  * Time: 20:56
  */
 
-$idPATIENT = $_POST['id'];
-
-if(isset($idPATIENT))
+if(isset($_POST["id"]))
 {
-
+    $output = '';
     $connect = mysqli_connect("localhost", "root", "", "service");
-
-    $query = "SELECT * FROM patient LEFT JOIN occupation ON patient.idPATIENT = occupation.idPatient WHERE patient.idPATIENT = '" . $_POST["id"] . "'";
+    $query = "SELECT * FROM occupation WHERE occupation.idOCCUPATION = '" . $_POST["id"] . "'";
     $result = mysqli_query($connect, $query);
     echo json_encode(mysqli_fetch_array($result));
+
 
 }
 
