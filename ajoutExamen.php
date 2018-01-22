@@ -56,30 +56,24 @@ if ($insertE == 'Valider') {
 
 }
 else{
-    if (!empty($insertE)){
 
-        try {
-            $connexionDB = new PDO('mysql:host=localhost;dbname=service', 'root', '');
+    try {
+        $connexionDB = new PDO('mysql:host=localhost;dbname=service', 'root', '');
 
-            $idEXAMEN = $_POST['id'];
+        $idEXAMEN = $_POST['id'];
 
 
-            $query = "UPDATE examen SET dateExamen=?, typeE=?, resultatExamen=?, fichierExam=? WHERE idEXAMEN=?";
+        $query = "UPDATE examen SET dateExamen=?, typeE=?, resultatExamen=?, fichierExam=? WHERE idEXAMEN=?";
 
-            $query = $connexionDB->prepare($query);
+        $query = $connexionDB->prepare($query);
 
-            $query->execute(array($dateExamen, $typeE, $resultatExamen, $fichierExam, $idEXAMEN));
+        $query->execute(array($dateExamen, $typeE, $resultatExamen, $fichierExam, $idEXAMEN));
 
-            header("location:test.php?idp=$idp");
+        header("location:details.php?idp=$idp");
 
-        } catch
-        (PDOException $e) {
-            die("Erreur: " . $e->getMessage());
-        }
+    } catch
+    (PDOException $e) {
+        die("Erreur: " . $e->getMessage());
     }
-    else {
-        echo 'error';
-    }
-
 }
 

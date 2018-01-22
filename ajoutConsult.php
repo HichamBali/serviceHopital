@@ -26,7 +26,7 @@ if ($insert == 'Valider') {
       VALUES ('" . $rapport . "','" . $ordonnance . "','" . $certificat . "','" . $orientation . "','" . $dateCons . "','" . $idp . "','" . $med . "')");
 
 
-        header("location:test.php?idp=$idp");
+        header("location:details.php?idp=$idp");
 
     } catch
     (PDOException $e) {
@@ -47,7 +47,7 @@ else {
 
         $query->execute(array($rapport, $ordonnance, $orientation, $certificat, $dateCons, $idCONSULTATION));
 
-      header("location:test.php?idp=$idp");
+      header("location:details.php?idp=$idp");
 
     } catch
     (PDOException $e) {
