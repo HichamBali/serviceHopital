@@ -27,6 +27,10 @@ $stmt3->execute();
 
 $stmt4=$dbh->prepare("SELECT * FROM occupation WHERE idPatient =$idp");
 $stmt4->execute();
+$chambreLibre=$dbh->prepare("SELECT idCHAMBRE FROM chambre WHERE nbOccuped < nombreLit");
+$chambreLibre->execute();
+$re=$chambreLibre->fetchAll();
+
 
 ?>
 
@@ -191,6 +195,9 @@ $stmt4->execute();
 
                             <li><input type="button" name="delete" value="Supprimer" id="'.$row["idCONSULTATION"].'"
                                        class="btn btn-danger btn-md delete_data btn-block"/></li>
+                                       
+                                       
+                              <li><a  href="VoirO.php?n='.$row["idCONSULTATION"].'" class="btn btn-success btn-md btn-block">Voir<a></li>
                         </ul>
                     </div>
 
@@ -306,7 +313,7 @@ $stmt4->execute();
 
     <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="skills">
         <div class="my-auto">
-            <h3 class="mb-5">Occupation</h3>
+            <h3 class="mb-5">Hospitalisation</h3>
 
             <div class="col-md-2" >
                 <button type="button" name="ajout2" id="addoccup" class="btn btn-primary" onclick="$('#ajoutO').modal('show');">
@@ -342,7 +349,7 @@ $stmt4->execute();
       <td style="display:none">'.$row["idOCCUPATION"].'</td>
        <td>'.$row["dateD"].'</td>
        <td>'.$row["dateF"].'</td>
-       <td>'.$row["lit"].'</td>
+       <td>'.$row["chambre"].'</td>
    
        <td>
 
@@ -458,7 +465,15 @@ $stmt4->execute();
                     <br/>
 
                     <label>Type</label>
-                    <textarea  name="typeE" id="typeE" class="form-control" ></textarea>
+                    <select  name="typeE" id="typeE" class="form-control" >
+                    <option value="IRM">IRM</option>
+                           <option value="RADIO">RADIO</option>
+                           <option value="ECO">ECO</option>
+                           <option value="GROUPAGE">GROUPAGE</option>
+                        <option value="ANALYSE SANGUIN">ANALYSE SANGUIN</option>
+                    </select>
+                    
+                    
                     <br/>
 
                     <label>Resultat</label>
@@ -487,7 +502,7 @@ $stmt4->execute();
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h3>Examen</h3>
+                <h3>Hospitalisation</h3>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body">
@@ -495,16 +510,23 @@ $stmt4->execute();
                 <br/>
                 <form method="post" id="insert_formO" action="ajouterOccupation.php">
 
-                    <label>Date </label>
+                    <label>Date Entré </label>
                     <input type="date" name="dateD" id="dateD" class="form-control"/>
                     <br/>
 
-                    <label>Date </label>
+                    <label>Date Sortie</label>
                     <input type="date" name="dateF" id="dateF" class="form-control"/>
                     <br/>
 
                     <label>Num chambre</label>
-                    <textarea  name="lit" id="lit" class="form-control" ></textarea>
+                    <select  name="chambre" id="chambre" class="form-control" >
+                        <?php
+                        foreach ($re as $re){
+                            echo "<option value='$re[0]'>".$re[0]."</option>";
+                        }
+                        ?>
+
+                    </select>
                     <br/>
 
                     <input type="hidden" name="insertO" id="insertO" value="Valider">

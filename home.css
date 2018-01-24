@@ -15,7 +15,8 @@
 }
 .nav-pills>li>a
 {
-    color: #303F9F;
+    color: #002752;
+    font-size: 140%;
 }
 
 .nav>li>a:hover, .nav>li>a:focus

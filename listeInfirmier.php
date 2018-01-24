@@ -33,10 +33,10 @@ include 'home.php';
 
                         <label>Spécialité</label>
                         <select name="specialite_i" id="specialite" class="form-control">
-                            <option value="Cardiologue">Cardiologue</option>
-                            <option value="Interniste">Interniste</option>
-                            <option value="Hémathologue">Hémathologue</option>
-                            <option value="Généraliste">Généraliste</option>
+                            <option value="Cardiologue">A</option>
+                            <option value="Interniste">B</option>
+                            <option value="Hémathologue">C</option>
+                            <option value="Généraliste">D</option>
                         </select>
                         <br/>
 

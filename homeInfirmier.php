@@ -88,15 +88,10 @@ if(empty($_SESSION['user']))
                 <li><a href="#"><i class="fa fa-user-times"></i> Supprimer patient</a></li>
             </ul>-->
         </li>
-        <li>
-            <a href="listeMedecin.php" data-toggle="collapse" data-target="#submenu-1"><i class="fa fa-user-md"></i> Médecin </a>
-        </li>
+
         <li>
             <a href="listeInfirmier.php" data-toggle="collapse" data-target="#submenu-3"><i class="fa fa-medkit"></i> Infirmier </a>
 
-        </li>
-        <li>
-            <a href="listeSecretaire.php" data-toggle="collapse" data-target="#submenu-4"><i class="fa fa-user"></i> Secrétaire </a>
         </li>
 
         <li>
@@ -104,7 +99,7 @@ if(empty($_SESSION['user']))
         </li>
 
         <li>
-            <a href="#" data-toggle="collapse" data-target="#submenu-6"><i class="fa fa-hotel"></i> Occupation </a>
+            <a href="chambre.php" data-toggle="collapse" data-target="#submenu-6"><i class="fa fa-hotel"></i> Chambre / Lit </a>
         </li>
 
     </ul>

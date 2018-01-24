@@ -48,19 +48,14 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Dashboard</a><!--ici j'ajoute logo-->
+            <a class="navbar-brand" href="#">Service Hopital</a><!--ici j'ajoute logo-->
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown">
-                    <a class="dropdown-toggle" role="button" data-toggle="dropdown" href="#"><i class="glyphicon glyphicon-user"></i> Secrétaire <span class="caret"></span></a>
-                    <ul id="g-account-menu" class="dropdown-menu" role="menu">
-                        <li><a href="logOut.php"><i class="fa fa-sign-out"></i> Déconnexion </a></li>
-                        <!--<li><a href="#"><i class="fa fa-user-secret"></i> Mon Profile</a></li>-->
-                        <li><a href="#"><i class="fa fa-unlock-alt"></i> Changer Mot de passe</a></li>
-                    </ul>
-                </li>
 
+                    <li><a  role="button" href="logOut.php"><i class="fa fa-sign-out"></i> Déconnexion </a>
+
+                    </li>
             </ul>
         </div>
     </div>
@@ -106,7 +101,7 @@
         </li>
 
         <li>
-            <a href="#" data-toggle="collapse" data-target="#submenu-6"><i class="fa fa-hotel"></i> Occupation </a>
+            <a href="chambre.php" data-toggle="collapse" data-target="#submenu-6"><i class="fa fa-hotel"></i> Chambre / Lit </a>
         </li>
 
     </ul>

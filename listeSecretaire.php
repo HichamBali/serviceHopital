@@ -53,7 +53,7 @@ include 'home.php';
                         <br/>
                         <input type="hidden" name="id" id="id" />
 
-                        <input type="submit" name="Ajouter" id="ajouter" value="Valider" class="btn btn-primary" />
+                        <input type="submit" name="insert" id="insert" value="Valider" class="btn btn-primary" />
                     </form>
                 </div>
                 <div class="modal-footer">
@@ -71,7 +71,7 @@ include 'home.php';
     <h2>Liste Secrétaires</h2>
 </div>
 <div align="right">
-    <button type="button" class="btn btn-primary" onclick="$('#add_data_Modal').modal('show');">
+    <button type="button" name="ajout" id="ajout" class="btn btn-primary" onclick="$('#add_data_Modal').modal('show');">
         <i class="fa fa-plus"></i>Ajouter</button>
 </div>
 <br/>

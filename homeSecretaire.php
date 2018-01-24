@@ -104,7 +104,7 @@ if(empty($_SESSION['user']))
         </li>
 
         <li>
-            <a href="#" data-toggle="collapse" data-target="#submenu-6"><i class="fa fa-hotel"></i> Occupation </a>
+            <a href="chambre.php" data-toggle="collapse" data-target="#submenu-6"><i class="fa fa-hotel"></i> Chambre / Lit </a>
         </li>
 
     </ul>

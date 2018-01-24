@@ -17,8 +17,13 @@ if ($insert == 'Valider') {
 
         $connexionDB = new PDO('mysql:host=localhost;dbname=service', 'root', '');
 
-        $insert = $connexionDB->query("INSERT INTO medecin(nom_m, prenom_m, adresse_m, grade_m, specialite_m, numTel_m)
-      VALUES ('" . $nom . "','" . $prenom . "','" . $adresse . "','" . $grade . "','" . $specialite . "','" . $numTel . "')");
+        $insert1 = $connexionDB->prepare("INSERT INTO users(username, password, typeUser)
+      VALUES (?,?,?)");
+        $insert1->execute(array($username,$password,$type));
+
+        $idU=5;
+        $insert2 = $connexionDB->query("INSERT INTO medecin(nom_m, prenom_m, adresse_m, grade_m, specialite_m, numTel_m,idUser)
+      VALUES ('" . $nom . "','" . $prenom . "','" . $adresse . "','" . $grade . "','" . $specialite . "','" . $numTel . "','" . $idU . "')");
 
         header("location:listeMedecin.php");
     } catch

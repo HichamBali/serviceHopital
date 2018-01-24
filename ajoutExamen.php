@@ -37,13 +37,13 @@ if ($insertE == 'Valider') {
 
         $connexionDB = new PDO('mysql:host=localhost;dbname=service', 'root', '');
 
-        $query = $connexionDB->query("INSERT INTO examen(dateExamen, typeE, resultatExamen, fichierExam, idPatient,idMedecin)
-         VALUES ('" . $dateExamen . "','" . $typeE . "','" . $resultatExamen . "','" . $fichierExam . "','" . $idp . "','" . $med . "')");
+        $query = $connexionDB->query("INSERT INTO examen(dateExamen, typeE, resultatExamen, fichierExam, idPatient)
+         VALUES ('" . $dateExamen . "','" . $typeE . "','" . $resultatExamen . "','" . $fichierExam . "','" . $idp . "')");
         $connexionDB->exec($query);
 
         //le id Patient!
 
-        header("location:test.php?idp=$idp");
+        header("location:details.php?idp=$idp");
     } catch
     (PDOException $e) {
         die("Erreur: " . $e->getMessage());
